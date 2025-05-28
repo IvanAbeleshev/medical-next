@@ -5,13 +5,6 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +12,111 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out;
+}
+
+/* Section title underline animation */
+.section-title-underline {
+  position: relative;
+}
+
+.section-title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #0077cc, #4da6db);
+  border-radius: 2px;
+}
+
+/* Water Drop Effect Animations */
+@keyframes drop-fall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-1 {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-2 {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-3 {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(8);
+    opacity: 0;
+  }
+}
+
+.animate-drop-fall {
+  animation: drop-fall 3s ease-in infinite;
+}
+
+.animate-ripple-1 {
+  animation: ripple-1 2s ease-out infinite 0.5s;
+}
+
+.animate-ripple-2 {
+  animation: ripple-2 2.5s ease-out infinite 0.7s;
+}
+
+.animate-ripple-3 {
+  animation: ripple-3 3s ease-out infinite 1s;
 }

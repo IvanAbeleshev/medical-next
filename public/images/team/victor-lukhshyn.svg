@@ -1,0 +1,27 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  
+  <!-- Professional medical doctor illustration -->
+  <circle cx="100" cy="80" r="35" fill="#e9ecef" stroke="#0077cc" stroke-width="2"/>
+  
+  <!-- Body/Coat -->
+  <rect x="70" y="110" width="60" height="80" rx="10" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  
+  <!-- Medical cross -->
+  <rect x="95" y="130" width="10" height="20" fill="#0077cc"/>
+  <rect x="90" y="135" width="20" height="10" fill="#0077cc"/>
+  
+  <!-- Medical badge -->
+  <rect x="75" y="120" width="15" height="10" rx="2" fill="#4da6db"/>
+  
+  <!-- Clipboard -->
+  <rect x="110" y="125" width="15" height="20" rx="2" fill="#e9ecef" stroke="#0077cc" stroke-width="1"/>
+  <rect x="112" y="130" width="11" height="2" fill="#0077cc"/>
+  <rect x="112" y="135" width="11" height="2" fill="#0077cc"/>
+  <rect x="112" y="140" width="8" height="2" fill="#0077cc"/>
+  
+  <!-- Text -->
+  <text x="100" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0077cc">VICTOR</text>
+  <text x="100" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0077cc">LUKHSHYN</text>
+</svg>
