@@ -59,11 +59,56 @@ export default function Certificates() {
     { number: '100%', text: 'Відповідність міжнародним стандартам' }
   ];  return (
     <section id="certificates" className="py-20 bg-gradient-to-b from-white via-gray-50 to-blue-50 relative overflow-hidden">
-      {/* Geometric decorative elements */}
+      {/* Large decorative square figures - adding more */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute top-1/4 right-6 w-28 h-28 bg-gradient-to-bl from-indigo-200/25 to-gray-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-32 left-8 w-36 h-36 bg-gradient-to-tr from-blue-200/25 to-indigo-300/20 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-16 right-12 w-24 h-24 bg-gradient-to-tl from-gray-200/30 to-blue-200/25 rounded-2xl rotate-45"></div>
+      <div className="absolute top-2/3 left-4 w-20 h-20 bg-gradient-to-br from-indigo-200/30 to-blue-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute top-12 right-2 w-30 h-30 bg-gradient-to-bl from-blue-300/25 to-indigo-200/25 rounded-2xl rotate-45"></div>
+      <div className="absolute top-1/2 right-20 w-26 h-26 bg-gradient-to-tr from-gray-200/25 to-blue-200/30 rounded-2xl rotate-45"></div>
+      
+      {/* Geometric decorative elements */}
       <div className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-tl from-gray-200/30 to-blue-200/30 rounded-full"></div>
       <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-blue-100/25 to-transparent rounded-lg rotate-12"></div>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      {/* Additional decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Left side additional elements */}
+        <div className="absolute top-32 left-6 w-12 h-12 border-2 border-blue-300/30 transform rotate-45 animate-float-slow"></div>
+        <div className="absolute top-52 left-2 w-8 h-8 bg-blue-200/20 rounded-full animate-pulse-gentle" style={{ animationDelay: '1.2s' }}></div>
+        <div className="absolute top-3/4 left-12 w-10 h-10 border border-indigo-200/35 transform rotate-45 animate-float-medium" style={{ animationDelay: '2.8s' }}></div>
+        <div className="absolute bottom-40 left-8 w-9 h-9 bg-indigo-100/25 rounded-full animate-pulse-strong" style={{ animationDelay: '0.9s' }}></div>
+        <div className="absolute bottom-20 left-4 w-11 h-11 border-2 border-blue-400/25 transform rotate-45 animate-slide-diagonal" style={{ animationDelay: '3.6s' }}></div>
+        <div className="absolute top-1/5 left-16 w-7 h-7 bg-blue-300/20 rounded-full animate-pulse-gentle" style={{ animationDelay: '4.1s' }}></div>
+        
+        {/* Right side additional elements */}
+        <div className="absolute top-40 right-6 w-13 h-13 border-2 border-indigo-300/25 transform rotate-45 animate-float-medium" style={{ animationDelay: '3.5s' }}></div>
+        <div className="absolute top-60 right-12 w-8 h-8 bg-blue-100/25 rounded-full animate-pulse-gentle" style={{ animationDelay: '0.7s' }}></div>
+        <div className="absolute top-2/3 right-16 w-10 h-10 border border-blue-200/30 transform rotate-45 animate-float-slow" style={{ animationDelay: '4.2s' }}></div>
+        <div className="absolute bottom-28 right-4 w-12 h-12 border-2 border-indigo-400/30 transform rotate-45 animate-slide-diagonal" style={{ animationDelay: '1.8s' }}></div>
+        <div className="absolute bottom-48 right-8 w-7 h-7 bg-blue-200/25 rounded-full animate-pulse-strong" style={{ animationDelay: '2.3s' }}></div>
+        <div className="absolute top-1/6 right-20 w-9 h-9 border border-indigo-300/25 transform rotate-45 animate-float-fast" style={{ animationDelay: '3.9s' }}></div>
+        
+        {/* Center area scattered elements */}
+        <div className="absolute top-1/3 left-2/3 w-8 h-8 border border-gray-300/25 transform rotate-45 animate-pulse-gentle" style={{ animationDelay: '2.1s' }}></div>
+        <div className="absolute top-1/5 left-1/2 w-10 h-10 bg-indigo-200/20 rounded-full animate-float-medium" style={{ animationDelay: '1.7s' }}></div>
+        <div className="absolute bottom-1/4 left-1/2 w-11 h-11 border-2 border-blue-300/30 transform rotate-45 animate-slide-diagonal" style={{ animationDelay: '0.4s' }}></div>
+        <div className="absolute bottom-1/3 right-2/3 w-7 h-7 bg-blue-400/25 rounded-full animate-pulse-strong" style={{ animationDelay: '2.9s' }}></div>
+        <div className="absolute top-4/5 right-1/2 w-9 h-9 border border-indigo-200/30 transform rotate-45 animate-float-slow" style={{ animationDelay: '4.5s' }}></div>
+        <div className="absolute top-2/5 left-3/4 w-8 h-8 bg-gray-200/25 rounded-full animate-pulse-gentle" style={{ animationDelay: '1.4s' }}></div>
+        
+        {/* Additional scattered elements */}
+        <div className="absolute top-1/8 left-1/3 w-6 h-6 border border-blue-300/25 transform rotate-45 animate-float-fast" style={{ animationDelay: '3.2s' }}></div>
+        <div className="absolute top-7/8 right-1/4 w-8 h-8 bg-indigo-100/20 rounded-full animate-pulse-gentle" style={{ animationDelay: '0.6s' }}></div>
+        <div className="absolute bottom-1/6 left-3/4 w-10 h-10 border-2 border-gray-300/30 transform rotate-45 animate-slide-diagonal" style={{ animationDelay: '2.6s' }}></div>
+        
+        {/* Large background elements */}
+        <div className="absolute -top-24 -left-24 w-48 h-48 border border-blue-100/10 rounded-full animate-rotate-slow"></div>
+        <div className="absolute -bottom-24 -right-24 w-52 h-52 border border-indigo-100/10 rounded-full animate-rotate-slow" style={{ animationDelay: '30s' }}></div>
+        <div className="absolute top-1/4 -right-32 w-44 h-44 border border-gray-100/10 rounded-full animate-rotate-slow" style={{ animationDelay: '20s' }}></div>
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
             Сертифікати та акредитації

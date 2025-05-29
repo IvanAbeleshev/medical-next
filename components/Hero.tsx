@@ -109,7 +109,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-blue-600 via-blue-500 to-sky-400 text-white overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br text-white overflow-hidden pt-32 pb-16 sm:pb-20 lg:pb-12">
       {/* Additional gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-700/20 via-transparent to-cyan-400/20"></div>
       <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-600/10 to-indigo-600/20"></div>
@@ -157,9 +157,119 @@ export default function Hero() {
             <div className="absolute -top-4 -left-4 w-10 h-10 border border-white/10 rounded-full animate-ripple-3" style={{ animationDelay: '6s' }}></div>
           </div>
         </div>
+
+        {/* Drop 5 */}
+        <div className="absolute top-1/5 left-1/6">
+          <div className="relative">
+            <div className="absolute w-1.5 h-1.5 bg-white/50 rounded-full animate-drop-fall" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute -top-0.5 -left-0.5 w-3 h-3 border border-white/25 rounded-full animate-ripple-1" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute -top-1.5 -left-1.5 w-5 h-5 border border-white/15 rounded-full animate-ripple-2" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute -top-3 -left-3 w-8 h-8 border border-white/10 rounded-full animate-ripple-3" style={{ animationDelay: '1s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 6 */}
+        <div className="absolute top-1/2 left-1/5">
+          <div className="relative">
+            <div className="absolute w-2.5 h-2.5 bg-white/70 rounded-full animate-drop-fall" style={{ animationDelay: '3s' }}></div>
+            <div className="absolute -top-1 -left-1 w-5 h-5 border border-white/35 rounded-full animate-ripple-1" style={{ animationDelay: '3s' }}></div>
+            <div className="absolute -top-2.5 -left-2.5 w-7 h-7 border border-white/25 rounded-full animate-ripple-2" style={{ animationDelay: '3s' }}></div>
+            <div className="absolute -top-5 -left-5 w-12 h-12 border border-white/15 rounded-full animate-ripple-3" style={{ animationDelay: '3s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 7 */}
+        <div className="absolute top-1/6 right-1/5">
+          <div className="relative">
+            <div className="absolute w-1.5 h-1.5 bg-white/45 rounded-full animate-drop-fall" style={{ animationDelay: '5s' }}></div>
+            <div className="absolute -top-0.5 -left-0.5 w-3 h-3 border border-white/25 rounded-full animate-ripple-1" style={{ animationDelay: '5s' }}></div>
+            <div className="absolute -top-1.5 -left-1.5 w-5 h-5 border border-white/15 rounded-full animate-ripple-2" style={{ animationDelay: '5s' }}></div>
+            <div className="absolute -top-3 -left-3 w-8 h-8 border border-white/8 rounded-full animate-ripple-3" style={{ animationDelay: '5s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 8 */}
+        <div className="absolute bottom-1/4 right-1/6">
+          <div className="relative">
+            <div className="absolute w-2 h-2 bg-white/55 rounded-full animate-drop-fall" style={{ animationDelay: '7s' }}></div>
+            <div className="absolute -top-1 -left-1 w-4 h-4 border border-white/30 rounded-full animate-ripple-1" style={{ animationDelay: '7s' }}></div>
+            <div className="absolute -top-2 -left-2 w-6 h-6 border border-white/20 rounded-full animate-ripple-2" style={{ animationDelay: '7s' }}></div>
+            <div className="absolute -top-4 -left-4 w-10 h-10 border border-white/12 rounded-full animate-ripple-3" style={{ animationDelay: '7s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 9 */}
+        <div className="absolute top-3/4 left-1/3">
+          <div className="relative">
+            <div className="absolute w-1.5 h-1.5 bg-white/40 rounded-full animate-drop-fall" style={{ animationDelay: '8.5s' }}></div>
+            <div className="absolute -top-0.5 -left-0.5 w-3 h-3 border border-white/22 rounded-full animate-ripple-1" style={{ animationDelay: '8.5s' }}></div>
+            <div className="absolute -top-1.5 -left-1.5 w-5 h-5 border border-white/14 rounded-full animate-ripple-2" style={{ animationDelay: '8.5s' }}></div>
+            <div className="absolute -top-3 -left-3 w-8 h-8 border border-white/8 rounded-full animate-ripple-3" style={{ animationDelay: '8.5s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 10 */}
+        <div className="absolute top-1/8 right-1/6">
+          <div className="relative">
+            <div className="absolute w-2.5 h-2.5 bg-white/65 rounded-full animate-drop-fall" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute -top-1 -left-1 w-5 h-5 border border-white/32 rounded-full animate-ripple-1" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute -top-2.5 -left-2.5 w-7 h-7 border border-white/22 rounded-full animate-ripple-2" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute -top-5 -left-5 w-12 h-12 border border-white/12 rounded-full animate-ripple-3" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 11 - Small */}
+        <div className="absolute top-2/5 right-1/8">
+          <div className="relative">
+            <div className="absolute w-1 h-1 bg-white/35 rounded-full animate-drop-fall" style={{ animationDelay: '9.5s' }}></div>
+            <div className="absolute -top-0.5 -left-0.5 w-2 h-2 border border-white/20 rounded-full animate-ripple-1" style={{ animationDelay: '9.5s' }}></div>
+            <div className="absolute -top-1 -left-1 w-3 h-3 border border-white/12 rounded-full animate-ripple-2" style={{ animationDelay: '9.5s' }}></div>
+            <div className="absolute -top-2 -left-2 w-5 h-5 border border-white/8 rounded-full animate-ripple-3" style={{ animationDelay: '9.5s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 12 - Small */}
+        <div className="absolute bottom-1/5 left-1/8">
+          <div className="relative">
+            <div className="absolute w-1 h-1 bg-white/38 rounded-full animate-drop-fall" style={{ animationDelay: '10.8s' }}></div>
+            <div className="absolute -top-0.5 -left-0.5 w-2 h-2 border border-white/18 rounded-full animate-ripple-1" style={{ animationDelay: '10.8s' }}></div>
+            <div className="absolute -top-1 -left-1 w-3 h-3 border border-white/10 rounded-full animate-ripple-2" style={{ animationDelay: '10.8s' }}></div>
+            <div className="absolute -top-2 -left-2 w-5 h-5 border border-white/6 rounded-full animate-ripple-3" style={{ animationDelay: '10.8s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 13 - Medium */}
+        <div className="absolute top-4/5 right-2/5">
+          <div className="relative">
+            <div className="absolute w-2 h-2 bg-white/52 rounded-full animate-drop-fall" style={{ animationDelay: '1.7s' }}></div>
+            <div className="absolute -top-1 -left-1 w-4 h-4 border border-white/28 rounded-full animate-ripple-1" style={{ animationDelay: '1.7s' }}></div>
+            <div className="absolute -top-2 -left-2 w-6 h-6 border border-white/18 rounded-full animate-ripple-2" style={{ animationDelay: '1.7s' }}></div>
+            <div className="absolute -top-4 -left-4 w-10 h-10 border border-white/10 rounded-full animate-ripple-3" style={{ animationDelay: '1.7s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 14 - Small */}
+        <div className="absolute top-1/10 left-2/5">
+          <div className="relative">
+            <div className="absolute w-1.5 h-1.5 bg-white/42 rounded-full animate-drop-fall" style={{ animationDelay: '11.2s' }}></div>
+            <div className="absolute -top-0.5 -left-0.5 w-3 h-3 border border-white/22 rounded-full animate-ripple-1" style={{ animationDelay: '11.2s' }}></div>
+            <div className="absolute -top-1.5 -left-1.5 w-5 h-5 border border-white/14 rounded-full animate-ripple-2" style={{ animationDelay: '11.2s' }}></div>
+            <div className="absolute -top-3 -left-3 w-8 h-8 border border-white/8 rounded-full animate-ripple-3" style={{ animationDelay: '11.2s' }}></div>
+          </div>
+        </div>
+
+        {/* Drop 15 - Large */}
+        <div className="absolute bottom-1/6 right-3/5">
+          <div className="relative">
+            <div className="absolute w-3 h-3 bg-white/75 rounded-full animate-drop-fall" style={{ animationDelay: '3.8s' }}></div>
+            <div className="absolute -top-1.5 -left-1.5 w-6 h-6 border border-white/40 rounded-full animate-ripple-1" style={{ animationDelay: '3.8s' }}></div>
+            <div className="absolute -top-3 -left-3 w-9 h-9 border border-white/28 rounded-full animate-ripple-2" style={{ animationDelay: '3.8s' }}></div>
+            <div className="absolute -top-6 -left-6 w-15 h-15 border border-white/18 rounded-full animate-ripple-3" style={{ animationDelay: '3.8s' }}></div>
+          </div>
+        </div>
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Hero content */}
           <div className="text-center lg:text-left">

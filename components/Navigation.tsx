@@ -87,7 +87,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
       isScrolled 
         ? 'bg-white/98 backdrop-blur-md shadow-lg' 
         : 'bg-white/95 backdrop-blur-sm shadow-md'
@@ -105,6 +105,14 @@ export default function Navigation() {
               height={50}
               className="rounded-full object-cover"
             />
+            <div className="ml-3 text-left">
+              <div className="text-lg font-bold text-gray-800 leading-tight">
+                Shipping Safety
+              </div>
+              <div className="text-lg font-bold text-gray-800">
+                Medical Centre
+              </div>
+            </div>
           </button>          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
             {menuItems.map((item) => (

@@ -53,10 +53,18 @@ export default function IsoMlc() {
   ];
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-white relative overflow-hidden">
+      {/* Large decorative square figures */}
+      <div className="absolute top-16 left-6 w-32 h-32 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute top-2/3 right-10 w-28 h-28 bg-gradient-to-bl from-indigo-200/25 to-blue-300/20 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-20 left-12 w-24 h-24 bg-gradient-to-tr from-blue-300/25 to-indigo-200/25 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-1/3 right-4 w-36 h-36 bg-gradient-to-tl from-indigo-200/20 to-blue-200/30 rounded-2xl rotate-45"></div>
+      <div className="absolute top-1/2 left-2 w-20 h-20 bg-gradient-to-br from-blue-200/30 to-indigo-300/20 rounded-2xl rotate-45"></div>
+      <div className="absolute top-32 right-16 w-26 h-26 bg-gradient-to-bl from-indigo-200/25 to-blue-200/25 rounded-2xl rotate-45"></div>
+
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/40 to-transparent rounded-full -translate-x-48 -translate-y-48"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-indigo-100/40 to-transparent rounded-full translate-x-48 translate-y-48"></div>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
             ISO / MLC 2006
@@ -113,7 +121,7 @@ export default function IsoMlc() {
           {/* Decorative background elements */}
           <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
           <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-indigo-200/20 to-transparent rounded-full translate-x-12 translate-y-12"></div>
-          <div className="text-center relative z-10">
+          <div className="text-center relative z-0">
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">
               Наші стандарти якості
             </h3>

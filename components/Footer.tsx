@@ -15,8 +15,16 @@ export default function Footer() {
       });
     }
   };  return (
-    <footer className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <footer className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-20 relative overflow-hidden">
+      {/* Large decorative square figures */}
+      <div className="absolute top-16 left-8 w-32 h-32 bg-gradient-to-br from-blue-200/10 to-indigo-200/10 rounded-2xl rotate-45"></div>
+      <div className="absolute top-1/3 right-10 w-28 h-28 bg-gradient-to-bl from-slate-200/15 to-blue-200/10 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-24 left-6 w-24 h-24 bg-gradient-to-tr from-indigo-200/15 to-slate-200/10 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-40 right-8 w-36 h-36 bg-gradient-to-tl from-blue-200/10 to-indigo-200/15 rounded-2xl rotate-45"></div>
+      <div className="absolute top-2/3 left-2 w-20 h-20 bg-gradient-to-br from-slate-300/10 to-blue-200/15 rounded-2xl rotate-45"></div>
+      <div className="absolute top-20 right-4 w-26 h-26 bg-gradient-to-bl from-indigo-300/10 to-slate-200/15 rounded-2xl rotate-45"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">{/* Company Info */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-4 text-blue-400">

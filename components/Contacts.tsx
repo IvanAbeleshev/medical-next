@@ -3,11 +3,56 @@
 export default function Contacts() {
   return (
     <section id="contacts" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+      {/* Large decorative square figures */}
+      <div className="absolute top-20 left-8 w-32 h-32 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute top-1/3 right-10 w-28 h-28 bg-gradient-to-bl from-slate-200/25 to-blue-200/25 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-24 left-6 w-24 h-24 bg-gradient-to-tr from-indigo-200/30 to-slate-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-40 right-8 w-36 h-36 bg-gradient-to-tl from-blue-200/25 to-indigo-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute top-2/3 left-2 w-20 h-20 bg-gradient-to-br from-slate-300/25 to-blue-200/30 rounded-2xl rotate-45"></div>
+      <div className="absolute top-16 right-4 w-26 h-26 bg-gradient-to-bl from-indigo-300/20 to-slate-200/25 rounded-2xl rotate-45"></div>
+      
       {/* Wave-like decorative overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent"></div>
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-indigo-100/30 to-transparent rounded-full translate-x-40 -translate-y-40"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-100/30 to-transparent rounded-full -translate-x-32 translate-y-32"></div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Left side decorative elements */}
+        <div className="absolute top-20 left-8 w-13 h-13 border-2 border-blue-300/30 transform rotate-45 animate-float-slow"></div>
+        <div className="absolute top-44 left-4 w-9 h-9 bg-indigo-200/25 rounded-full animate-pulse-gentle" style={{ animationDelay: '1.3s' }}></div>
+        <div className="absolute top-1/2 left-6 w-11 h-11 border border-slate-300/35 transform rotate-45 animate-float-medium" style={{ animationDelay: '2.7s' }}></div>
+        <div className="absolute top-2/3 left-12 w-8 h-8 bg-blue-200/20 rounded-full animate-pulse-strong" style={{ animationDelay: '0.9s' }}></div>
+        <div className="absolute bottom-1/3 left-10 w-12 h-12 border-2 border-indigo-400/25 transform rotate-45 animate-slide-diagonal" style={{ animationDelay: '3.8s' }}></div>
+        <div className="absolute bottom-24 left-4 w-7 h-7 bg-slate-200/25 rounded-full animate-pulse-gentle" style={{ animationDelay: '4.4s' }}></div>
+        <div className="absolute bottom-16 left-14 w-10 h-10 border border-blue-300/30 transform rotate-45 animate-float-fast" style={{ animationDelay: '1.6s' }}></div>
+        
+        {/* Right side decorative elements */}
+        <div className="absolute top-28 right-12 w-12 h-12 border-2 border-indigo-300/25 transform rotate-45 animate-float-medium" style={{ animationDelay: '3.1s' }}></div>
+        <div className="absolute top-52 right-6 w-8 h-8 bg-slate-200/30 rounded-full animate-pulse-gentle" style={{ animationDelay: '4.2s' }}></div>
+        <div className="absolute top-2/3 right-8 w-10 h-10 border border-blue-300/30 transform rotate-45 animate-slide-diagonal" style={{ animationDelay: '1.6s' }}></div>
+        <div className="absolute top-3/4 right-14 w-7 h-7 bg-indigo-200/25 rounded-full animate-pulse-strong" style={{ animationDelay: '2.4s' }}></div>
+        <div className="absolute bottom-20 right-10 w-13 h-13 border-2 border-slate-400/30 transform rotate-45 animate-float-slow" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute bottom-40 right-6 w-9 h-9 bg-blue-300/25 rounded-full animate-pulse-gentle" style={{ animationDelay: '3.7s' }}></div>
+        <div className="absolute bottom-12 right-16 w-11 h-11 border border-indigo-300/25 transform rotate-45 animate-float-fast" style={{ animationDelay: '4.9s' }}></div>
+        
+        {/* Additional scattered elements */}
+        <div className="absolute top-1/4 left-1/3 w-9 h-9 border border-blue-200/25 transform rotate-45 animate-pulse-gentle" style={{ animationDelay: '3.8s' }}></div>
+        <div className="absolute top-1/5 left-2/3 w-11 h-11 bg-slate-200/20 rounded-full animate-float-medium" style={{ animationDelay: '1.1s' }}></div>
+        <div className="absolute bottom-1/4 right-1/3 w-8 h-8 border-2 border-indigo-300/30 transform rotate-45 animate-slide-diagonal" style={{ animationDelay: '0.4s' }}></div>
+        <div className="absolute bottom-1/2 left-1/2 w-10 h-10 bg-blue-400/25 rounded-full animate-pulse-strong" style={{ animationDelay: '2.7s' }}></div>
+        <div className="absolute top-3/4 left-2/3 w-12 h-12 border border-indigo-200/30 transform rotate-45 animate-float-slow" style={{ animationDelay: '2.9s' }}></div>
+        <div className="absolute top-1/6 right-1/4 w-7 h-7 bg-slate-300/25 rounded-full animate-pulse-gentle" style={{ animationDelay: '4.6s' }}></div>
+        <div className="absolute bottom-3/4 left-3/4 w-9 h-9 border border-blue-300/25 transform rotate-45 animate-float-fast" style={{ animationDelay: '1.4s' }}></div>
+        <div className="absolute top-5/6 right-2/3 w-8 h-8 bg-indigo-300/20 rounded-full animate-pulse-gentle" style={{ animationDelay: '3.3s' }}></div>
+        
+        {/* Large background elements */}
+        <div className="absolute -top-20 -left-20 w-40 h-40 border border-blue-100/12 rounded-full animate-rotate-slow"></div>
+        <div className="absolute -bottom-20 -right-20 w-48 h-48 border border-indigo-100/12 rounded-full animate-rotate-slow" style={{ animationDelay: '35s' }}></div>
+        <div className="absolute top-1/3 -left-32 w-44 h-44 border border-slate-100/10 rounded-full animate-rotate-slow" style={{ animationDelay: '25s' }}></div>
+        <div className="absolute bottom-1/4 -right-28 w-38 h-38 border border-blue-200/10 rounded-full animate-rotate-slow" style={{ animationDelay: '18s' }}></div>
+      </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
             Контакти
