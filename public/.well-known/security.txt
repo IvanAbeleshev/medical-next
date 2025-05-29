@@ -1,0 +1,13 @@
+Contact: mailto:mmsafety@ukr.net
+Expires: 2026-05-29T10:00:00.000Z
+Preferred-Languages: uk, en, ru
+Canonical: https://mmsafety.info/.well-known/security.txt
+Policy: https://mmsafety.info/security-policy
+Acknowledgments: https://mmsafety.info/thanks
+
+# Медичний центр безпеки судноплавства
+# Shipping Safety Medical Centre
+# Одеса, Україна
+# 
+# Для повідомлення про проблеми безпеки,
+# будь ласка, зверніться за вказаними контактами.

@@ -3,11 +3,11 @@ import Image from 'next/image';
 export default function Team() {
   const specialists = [
     {
-      id: 'georgiy',
-      name: 'Шершиков Георгій Степанович',
-      nameEng: 'GEORGIY SHERSHIKOV',
+      id: 'victor',
+      name: "Зав'ялов Віктор Аполлонович",
+      nameEng: 'Zavyalov Viktor',
       role: 'Голова комісії',
-      image: '/images/team/georgiy-shershikov.svg',
+      image: '/images/team/victor-zavyalov.svg',
       experience: '15+ років досвіду',
       specialty: 'Морська медицина',
       description: 'Досвідчений лікар з експертизи морських медичних сертифікатів. Спеціалізується на медичних оглядах моряків згідно з міжнародними стандартами.',
@@ -15,21 +15,6 @@ export default function Team() {
         'Ліцензований лікар',
         'Експерт МЛК 2006',
         'ISO 9001 сертифікований'
-      ]
-    },
-    {
-      id: 'victor',
-      name: 'Лукшин Віктор Вікторович',
-      nameEng: 'VICTOR LUKHSHYN',
-      role: 'Заступник голови комісії',
-      image: '/images/team/victor-lukhshyn.svg',
-      experience: '12+ років досвіду',
-      specialty: 'Медичні огляди',
-      description: 'Кваліфікований спеціаліст з проведення медичних оглядів моряків. Забезпечує дотримання всіх медичних протоколів та стандартів якості.',
-      credentials: [
-        'Сертифікований лікар',
-        'Морська медицина',
-        'Якість ISO стандартів'
       ]
     }
   ];  return (
@@ -41,7 +26,7 @@ export default function Team() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <div className="flex items-center justify-center gap-10 max-w-4xl mx-auto">
           {specialists.map((specialist) => (
             <div
               key={specialist.id}

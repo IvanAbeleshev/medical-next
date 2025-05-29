@@ -1,0 +1,42 @@
+# Robots.txt для Медичного центру безпеки судноплавства
+# Shipping Safety Medical Centre - Одеса, Україна
+
+# Дозволити всім роботам доступ до сайту
+User-agent: *
+Allow: /
+
+# Не індексувати сторінки помилок
+Disallow: /404
+Disallow: /*error*
+Disallow: /*Error*
+
+# Дозволити доступ до медіафайлів
+Allow: /images/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.ico
+
+# Посилання на sitemap та RSS
+Sitemap: https://mmsafety.info/sitemap.xml
+Sitemap: https://mmsafety.info/feed.xml
+
+# Правила для основних пошукових систем
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Затримка між запитами (в секундах)
+Crawl-delay: 1
+
+# Контактна інформація
+# Медичний центр безпеки судноплавства
+# Email: mmsafety@ukr.net
+# Phone: +380487223309 / +380674837251
+# Address: Одеса, Україна

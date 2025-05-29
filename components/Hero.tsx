@@ -65,6 +65,15 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="animate-fade-in-up">
+            {/* Logo */}
+            <div className="mb-8">
+              <img 
+                src="/images/logo.jpeg" 
+                alt="Shipping Safety Medical Centre Logo" 
+                className="mx-auto w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full shadow-2xl object-cover border-4 border-white/30"
+              />
+            </div>
+            
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
               <span className="block mb-2">Shipping Safety</span>
               <span className="block">Medical Centre</span>

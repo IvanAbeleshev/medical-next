@@ -8,7 +8,6 @@ export default function Contacts() {
     firstName: '',
     lastName: '',
     phone: '',
-    email: '',
     comments: '',
     consent: false
   });
@@ -53,7 +52,6 @@ export default function Contacts() {
           firstName: formData.firstName,
           lastName: formData.lastName,
           phone: formData.phone,
-          email: formData.email || undefined,
           comments: formData.comments || undefined,
         });
 
@@ -63,7 +61,6 @@ export default function Contacts() {
             firstName: '',
             lastName: '',
             phone: '',
-            email: '',
             comments: '',
             consent: false
           });
@@ -269,7 +266,7 @@ export default function Contacts() {
                     <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
                   )}
                 </div>
-              </div>              <div className="grid grid-cols-2 gap-4">
+              </div>              <div className="grid grid-cols-1 gap-4">
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                     Телефон *
@@ -288,20 +285,6 @@ export default function Contacts() {
                   {errors.phone && (
                     <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
                   )}
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
-                  </label>                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="example@email.com"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder:text-gray-500 text-black"
-                  />
                 </div>
               </div>
 
