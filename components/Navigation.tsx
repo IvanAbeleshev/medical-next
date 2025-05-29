@@ -1,11 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { lockScroll, isIOS, createScrollDebouncer, IOSAnimationManager } from '@/utils/ios-utils';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const unlockScrollRef = useRef<(() => void) | null>(null);
+  const animationManagerRef = useRef<IOSAnimationManager>(new IOSAnimationManager());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +19,7 @@ export default function Navigation() {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMenuOpen(false);
+        setIsAnimating(false);
       }
     };
 
@@ -31,29 +36,40 @@ export default function Navigation() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Дебаунс для скролла для лучшей производительности на iOS
+    const optimizedHandleScroll = createScrollDebouncer(() => {
+      setIsScrolled(window.scrollY > 50);
+    }, 16);
+
+    window.addEventListener('scroll', optimizedHandleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleKeyDown);
     
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', optimizedHandleScroll);
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
-  // Блокировка скролла при открытом мобильном меню
+  // Блокировка скролла при открытом мобильном меню - оптимизировано для iOS
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      unlockScrollRef.current = lockScroll();
     } else {
-      document.body.style.overflow = 'unset';
+      if (unlockScrollRef.current) {
+        unlockScrollRef.current();
+        unlockScrollRef.current = null;
+      }
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      if (unlockScrollRef.current) {
+        unlockScrollRef.current();
+        unlockScrollRef.current = null;
+      }
     };
   }, [isMenuOpen]);
   const menuItems = [
@@ -66,17 +82,39 @@ export default function Navigation() {
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    const target = document.querySelector(targetId);
-    if (target) {
-      const headerOffset = 80;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+    // Сначала закрываем меню
+    setIsMenuOpen(false);
+    setIsAnimating(true);
+    
+    // Небольшая задержка для завершения анимации закрытия меню
+    setTimeout(() => {
+      const target = document.querySelector(targetId);
+      if (target) {
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }    setIsMenuOpen(false);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+      setIsAnimating(false);
+    }, 300);
+  };
+
+  const toggleMenu = () => {
+    if (isAnimating) return; // Предотвращаем повторные клики во время анимации
+    
+    setIsAnimating(true);
+    setIsMenuOpen(!isMenuOpen);
+    
+    // Сбрасываем флаг анимации после завершения
+    const duration = isIOS() ? 400 : 300; // Больше времени для iOS
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, duration);
   };
 
   const scrollToTop = () => {
@@ -131,54 +169,70 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - оптимизировано для iOS */}
           <button
             className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 mobile-menu-button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
+            disabled={isAnimating}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
+            style={{ transform: 'translate3d(0, 0, 0)' }} // Аппаратное ускорение
           >
-            <div className="relative w-6 h-5">
-              <span className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
-                isMenuOpen ? 'rotate-45 top-2' : 'top-0'
-              }`} />
-              <span className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line top-2 ${
-                isMenuOpen ? 'opacity-0' : 'opacity-100'
-              }`} />
-              <span className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
-                isMenuOpen ? '-rotate-45 top-2' : 'top-4'
-              }`} />
+            <div className="relative w-6 h-5" style={{ transform: 'translate3d(0, 0, 0)' }}>
+              <span 
+                className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
+                  isMenuOpen ? 'rotate-45 top-2' : 'top-0'
+                }`}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
+              />
+              <span 
+                className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line top-2 ${
+                  isMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
+              />
+              <span 
+                className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
+                  isMenuOpen ? '-rotate-45 top-2' : 'top-4'
+                }`}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
+              />
             </div>
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden absolute top-full left-0 right-0 mobile-menu-backdrop bg-white/98 border-t border-gray-200 shadow-lg transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'opacity-100 visible animate-slide-down' : 'opacity-0 invisible'
+        {/* Mobile Menu - оптимизировано для iOS */}
+        <div className={`md:hidden absolute top-full left-0 right-0 mobile-menu-container transform transition-all duration-300 ease-in-out ${
+          isMenuOpen 
+            ? 'opacity-100 visible translate-y-0' 
+            : 'opacity-0 invisible -translate-y-2'
         }`}>
-          <div className="max-w-6xl mx-auto px-4 py-4">
-            <div className="flex flex-col space-y-1">
-              {menuItems.map((item, index) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className={`font-medium px-4 py-3 rounded-xl mobile-menu-item transition-all duration-200 transform ${
-                    isMenuOpen 
-                      ? `translate-x-0 opacity-100` 
-                      : 'translate-x-4 opacity-0'
-                  } ${
-                    item.special
-                      ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50 border border-transparent hover:border-blue-100'
-                  }`}
-                  style={{
-                    transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
-                  }}
-                >
-                  {item.label}
-                </a>
-              ))}
+          <div className="mobile-menu-backdrop bg-white/98 border-t border-gray-200 shadow-lg">
+            <div className="max-w-6xl mx-auto px-4 py-4">
+              <div className="flex flex-col space-y-1">
+                {menuItems.map((item, index) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
+                    className={`font-medium px-4 py-3 rounded-xl mobile-menu-item transform transition-all duration-200 ${
+                      isMenuOpen 
+                        ? `translate-x-0 opacity-100` 
+                        : 'translate-x-4 opacity-0'
+                    } ${
+                      item.special
+                        ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50 border border-transparent hover:border-blue-100'
+                    }`}
+                    style={{
+                      transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms',
+                      transform: 'translate3d(0, 0, 0)' // Принудительное использование аппаратного ускорения
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

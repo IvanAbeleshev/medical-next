@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import seoConfig from "@/config/seo";
+import IOSOptimizer from "@/components/IOSOptimizer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,18 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: 'cover'
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: seoConfig.siteName
   },
   icons: {
     icon: [
@@ -159,6 +172,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <IOSOptimizer />
         {children}
       </body>
     </html>

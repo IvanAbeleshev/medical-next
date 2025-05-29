@@ -49,7 +49,7 @@ export default function Footer() {
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
                 <span className="text-gray-300 text-sm">
-                  Одеса, вул. Жуковського 33, офіс 608
+                  Одеса, вул. Жуковського 33, офіс 701
                 </span>
               </div>
 

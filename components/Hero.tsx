@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useEffect, useRef } from 'react';
 import { sendToTelegram } from '../app/actions/telegram';
 
 export default function Hero() {
@@ -15,6 +15,31 @@ export default function Hero() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isPending, startTransition] = useTransition();
+  const [isVisible, setIsVisible] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Intersection Observer для оптимизации анимации
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Запускаем когда 10% секции видимо
+        rootMargin: '50px' // Начинаем анимацию на 50px раньше
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -109,13 +134,17 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br text-white overflow-hidden pt-32 pb-16 sm:pb-20 lg:pb-12">
+    <section 
+      ref={sectionRef}
+      id="home" 
+      className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 text-white overflow-hidden pt-32 pb-16 sm:pb-20 lg:pb-12"
+    >
       {/* Additional gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-700/20 via-transparent to-cyan-400/20"></div>
       <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-blue-600/10 to-indigo-600/20"></div>
       
-      {/* Water Drop Effect */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Water Drop Effect - приостанавливается когда не виден */}
+      <div className={`absolute inset-0 overflow-hidden ${!isVisible ? 'animation-paused' : ''}`}>
         {/* Drop 1 */}
         <div className="absolute top-1/4 left-1/4">
           <div className="relative">

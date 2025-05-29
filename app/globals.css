@@ -5,13 +5,6 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -121,6 +114,14 @@ body {
   animation: ripple-3 3s ease-out infinite 1s;
 }
 
+/* Класс для паузы анимаций когда элемент не виден */
+.animation-paused .animate-drop-fall,
+.animation-paused .animate-ripple-1,
+.animation-paused .animate-ripple-2,
+.animation-paused .animate-ripple-3 {
+  animation-play-state: paused;
+}
+
 /* Mobile Navigation Animations */
 @keyframes slide-down {
   from {
@@ -152,15 +153,25 @@ body {
   animation: slide-in-left 0.4s ease-out;
 }
 
-/* Mobile menu backdrop blur */
+/* Mobile menu backdrop blur - iOS optimized */
 .mobile-menu-backdrop {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  /* iOS optimization */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 
-/* Smooth transitions for mobile menu items */
+/* Smooth transitions for mobile menu items - iOS optimized */
 .mobile-menu-item {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* iOS optimization */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .mobile-menu-item:hover {
@@ -173,10 +184,16 @@ body {
   outline-offset: 2px;
 }
 
-/* Hamburger menu animation improvements */
+/* Hamburger menu animation improvements - iOS optimized */
 .hamburger-line {
   transform-origin: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* iOS optimization */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Decorative Background Elements Animations */
@@ -273,4 +290,201 @@ body {
 
 .animate-slide-diagonal {
   animation: slide-diagonal 7s ease-in-out infinite;
+}
+
+/* iOS specific optimizations to prevent flickering */
+@supports (-webkit-touch-callout: none) {
+  /* Mobile menu optimizations for iOS */
+  .mobile-menu-container {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+  
+  .mobile-menu-backdrop {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Prevent body scroll issues on iOS */
+  .mobile-menu-open {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Smooth slide animations for iOS */
+  .mobile-slide-enter {
+    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+  
+  .mobile-slide-enter-active {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  }
+  
+  .mobile-slide-exit {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  
+  .mobile-slide-exit-active {
+    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  }
+}
+
+/* Prevent flash of unstyled content on iOS */
+@media (max-width: 767px) {
+  /* Preload mobile menu styles */
+  .mobile-menu-preload {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  /* Optimize navigation bar rendering */
+  nav {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Reduce repaints during scroll */
+  .nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Alternative mobile menu animation for better iOS performance */
+@keyframes mobile-menu-slide-down {
+  from {
+    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-menu-slide-up {
+  from {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+}
+
+.animate-mobile-menu-enter {
+  animation: mobile-menu-slide-down 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-mobile-menu-exit {
+  animation: mobile-menu-slide-up 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Специальные стили для iOS устройств */
+.is-ios {
+  /* Отключаем выделение текста для лучшей производительности */
+  -webkit-user-select: none;
+  user-select: none;
+  
+  /* Отключаем подсветку тапов */
+  -webkit-tap-highlight-color: transparent;
+  
+  /* Улучшаем производительность прокрутки */
+  -webkit-overflow-scrolling: touch;
+}
+
+.is-ios .mobile-menu-backdrop {
+  /* Специальная оптимизация backdrop-filter для iOS */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.is-ios .mobile-menu-item {
+  /* Оптимизация переходов для iOS */
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.25s ease;
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+                      opacity 0.25s ease;
+}
+
+.is-ios .hamburger-line {
+  /* Более плавная анимация гамбургера на iOS */
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Safari специфичные стили */
+.is-safari .mobile-menu-backdrop {
+  /* Альтернативный подход для старых версиях Safari */
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Устранение проблем с viewport на iOS */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* Предотвращаем "резиновую" прокрутку */
+    overscroll-behavior: none;
+    -webkit-overscroll-behavior: none;
+  }
+  
+  /* Фиксируем проблемы с position: fixed на iOS */
+  .nav-fixed {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  @media (max-width: 767px) {
+    .nav-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
 }

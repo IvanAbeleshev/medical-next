@@ -84,7 +84,7 @@ export default function Contacts() {
                 </svg>
                 <div>
                   <span className="font-medium text-gray-800">Адреса:</span>
-                  <p className="text-gray-600">Одеса, вул. Жуковського 33, офіс 608</p>
+                  <p className="text-gray-600">Одеса, вул. Жуковського 33, офіс 701</p>
                 </div>
               </div>
 
