@@ -58,8 +58,12 @@ export default function Certificates() {
     { number: '10K+', text: 'Виданих медичних сертифікатів' },
     { number: '100%', text: 'Відповідність міжнародним стандартам' }
   ];  return (
-    <section id="certificates" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="certificates" className="py-20 bg-gradient-to-b from-white via-gray-50 to-blue-50 relative overflow-hidden">
+      {/* Geometric decorative elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-2xl rotate-45"></div>
+      <div className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-tl from-gray-200/30 to-blue-200/30 rounded-full"></div>
+      <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-blue-100/25 to-transparent rounded-lg rotate-12"></div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
             Сертифікати та акредитації

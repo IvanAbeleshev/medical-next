@@ -1,7 +1,12 @@
+import Image from "next/image";
+
+
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent"></div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
             Про нас
@@ -51,25 +56,17 @@ export default function About() {
 
           {/* Visual Element */}
           <div className="flex justify-center">
-            <div className="relative w-full max-w-md">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-200 rounded-[20px] py-15 px-10 text-center shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                <div className="text-blue-600 mb-5">
-                  <svg
-                    width="120"
-                    height="120"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="mx-auto"
-                  >
-                    <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.16.21 2.76.21 3.92 0 5.16-1 9-5.45 9-11V7l-10-5z"/>
-                    <path d="M8 12h8M12 8v8"/>
-                  </svg>
+            <div className="relative w-full max-w-lg">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-200 rounded-[20px] shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <div className="relative w-full h-80 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/about.jpeg"
+                    alt="Професійна медична допомога"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
-                <p className="text-xl text-blue-600 font-semibold m-0">
-                  Професійна медична допомога
-                </p>
               </div>
             </div>
           </div>
