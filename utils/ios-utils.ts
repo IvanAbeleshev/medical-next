@@ -126,8 +126,8 @@ export const createScrollDebouncer = (callback: () => void, delay = 16): (() => 
   };
 };
 
-// Хук для оптимизации рендера на iOS
-export const useIOSOptimization = () => {
+// Функция для оптимизации рендера на iOS
+export const initializeIOSOptimization = () => {
   if (typeof window === 'undefined') return;
 
   // Добавляем CSS классы для iOS
@@ -150,5 +150,5 @@ export default {
   lockScroll,
   IOSAnimationManager,
   createScrollDebouncer,
-  useIOSOptimization
+  initializeIOSOptimization
 };

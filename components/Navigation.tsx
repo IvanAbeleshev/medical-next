@@ -2,20 +2,15 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { lockScroll, isIOS, createScrollDebouncer, IOSAnimationManager } from '@/utils/ios-utils';
+import { lockScroll, isIOS, createScrollDebouncer } from '@/utils/ios-utils';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const unlockScrollRef = useRef<(() => void) | null>(null);
-  const animationManagerRef = useRef<IOSAnimationManager>(new IOSAnimationManager());
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMenuOpen(false);

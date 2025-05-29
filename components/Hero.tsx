@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useTransition, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { sendToTelegram } from '../app/actions/telegram';
 
 export default function Hero() {
@@ -20,6 +21,7 @@ export default function Hero() {
 
   // Intersection Observer для оптимизации анимации
   useEffect(() => {
+    const currentSection = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
@@ -30,13 +32,13 @@ export default function Hero() {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentSection) {
+      observer.observe(currentSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
     };
   }, []);
@@ -137,7 +139,7 @@ export default function Hero() {
     <section 
       ref={sectionRef}
       id="home" 
-      className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 text-white overflow-hidden pt-32 pb-16 sm:pb-20 lg:pb-12"
+      className="min-h-screen flex items-center justify-center relative bg-gradient-to-br text-white overflow-hidden pt-32 pb-16 sm:pb-20 lg:pb-12"
     >
       {/* Additional gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-700/20 via-transparent to-cyan-400/20"></div>
@@ -305,10 +307,13 @@ export default function Hero() {
             <div className="animate-fade-in-up">
               {/* Logo */}
               <div className="mb-8 flex justify-center lg:justify-start">
-                <img 
+                <Image
                   src="/images/logo.jpeg" 
                   alt="Shipping Safety Medical Centre Logo" 
+                  width={192}
+                  height={192}
                   className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full shadow-2xl object-cover border-4 border-white/30"
+                  priority
                 />
               </div>
               

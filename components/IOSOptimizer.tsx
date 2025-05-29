@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useIOSOptimization } from '@/utils/ios-utils';
+import { initializeIOSOptimization } from '@/utils/ios-utils';
 
 export default function IOSOptimizer() {
   useEffect(() => {
     // Инициализируем iOS оптимизации
-    useIOSOptimization();
+    initializeIOSOptimization();
   }, []);
 
   return null;
