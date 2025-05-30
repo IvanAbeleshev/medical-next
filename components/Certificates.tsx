@@ -1,6 +1,25 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Certificates() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedTitle, setSelectedTitle] = useState<string>('');
+
+  // Handle escape key press
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [selectedImage]);
   const certificates = [
     {
       id: 1,
@@ -57,7 +76,21 @@ export default function Certificates() {
     { number: '50+', text: 'Країн, що визнають наші сертифікати' },
     { number: '10K+', text: 'Виданих медичних сертифікатів' },
     { number: '100%', text: 'Відповідність міжнародним стандартам' }
-  ];  return (
+  ];
+
+  const openModal = (imageSrc: string, title: string) => {
+    setSelectedImage(imageSrc);
+    setSelectedTitle(title);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setSelectedTitle('');
+    document.body.style.overflow = 'unset';
+  };
+
+  return (
     <section id="certificates" className="py-20 bg-gradient-to-b from-white via-gray-50 to-blue-50 relative overflow-hidden">
       {/* Large decorative square figures - adding more */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-200/20 to-indigo-200/20 rounded-2xl rotate-45"></div>
@@ -117,14 +150,16 @@ export default function Certificates() {
             Наш медичний центр має всі необхідні ліцензії та сертифікати для надання якісних медичних послуг морякам. 
             Всі документи визнані морськими адміністраціями країн світу та відповідають міжнародним стандартам.
           </p>
-        </div>{/* Certificates Grid */}
+        </div>        {/* Certificates Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 hover:border-blue-600 group"
+              className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 hover:border-blue-600 group cursor-pointer"
+              onClick={() => openModal(cert.image, cert.title)}
+              title="Натисніть для перегляду сертифіката"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
                 <Image
                   src={cert.image}
                   alt={cert.title}
@@ -136,6 +171,17 @@ export default function Certificates() {
                   <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                     {cert.badge}
                   </span>
+                </div>
+                {/* Overlay with view icon */}
+                <div className="absolute inset-0 bg-black/10 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-110">
+                    <div className="bg-white rounded-full p-3 shadow-lg">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-600">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -194,6 +240,53 @@ export default function Certificates() {
           </div>
         </div>
       </div>
+
+      {/* Modal for image viewing */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[150] p-4"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full">
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10 flex items-center space-x-2"
+              aria-label="Закрыть"
+            >
+              <span className="text-sm hidden sm:block">Натисніть ESC або</span>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+            
+            {/* Image container */}
+            <div 
+              className="bg-white rounded-lg overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative">
+                <Image
+                  src={selectedImage}
+                  alt={selectedTitle}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto max-h-[80vh] object-contain"
+                  priority
+                />
+              </div>
+              
+              {/* Image title */}
+              <div className="p-4 bg-gray-50 border-t">
+                <h3 className="text-lg font-semibold text-gray-800 text-center">
+                  {selectedTitle}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
