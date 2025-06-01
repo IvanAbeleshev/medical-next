@@ -50,6 +50,28 @@ body {
   border-radius: 2px;
 }
 
+/* Optimized team card animations */
+.team-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.team-card-image {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.team-card-overlay {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.team-card-panel {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 /* Water Drop Effect Animations */
 @keyframes drop-fall {
   0% {

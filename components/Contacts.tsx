@@ -52,14 +52,15 @@ export default function Contacts() {
         <div className="absolute top-1/3 -left-32 w-44 h-44 border border-slate-100/10 rounded-full animate-rotate-slow" style={{ animationDelay: '25s' }}></div>
         <div className="absolute bottom-1/4 -right-28 w-38 h-38 border border-blue-200/10 rounded-full animate-rotate-slow" style={{ animationDelay: '18s' }}></div>
       </div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
             Контакти
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        {/* Desktop layout: side by side, Mobile: stacked */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div className="bg-blue-50 rounded-3xl p-8">
             <div className="flex items-center mb-6">
@@ -132,6 +133,40 @@ export default function Contacts() {
               <p className="text-sm text-blue-700 italic">
                 Centre licensed by Ministry of public health of Ukraine
               </p>
+            </div>
+          </div>
+
+          {/* Google Map */}
+          <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mr-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-800">Наше розташування</h3>
+                <p className="text-gray-600 text-sm">Одеса, вул. Жуковського 33, офіс 701</p>
+              </div>
+            </div>
+            
+            <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-md">
+              <iframe
+                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=uk&amp;q=%D0%B2%D1%83%D0%BB.%20%D0%96%D1%83%D0%BA%D0%BE%D0%B2%D1%81%D1%8C%D0%BA%D0%BE%D0%B3%D0%BE%2033,%20%D0%9E%D0%B4%D0%B5%D1%81%D0%B0,%20%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0+(Shipping%20Safety%20Medical%20Centre)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Shipping Safety Medical Centre Location"
+              ></iframe>
+            </div>
+            
+            <div className="mt-4 text-sm text-gray-600 text-center">
+              <p>🚗 Зручне розташування в центрі Одеси</p>
+              <p>🚇 Поруч з громадським транспортом</p>
             </div>
           </div>
         </div>

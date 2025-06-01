@@ -7,7 +7,7 @@ export default function Team() {
       name: "Зав'ялов Віктор Аполлонович",
       nameEng: 'Zavyalov Viktor',
       role: 'Голова комісії',
-      image: '/images/team/victor-zavyalov.svg',
+      image: '/images/team/victor-zavyalov.jpeg',
       experience: '15+ років досвіду',
       specialty: 'Морська медицина',
       description: 'Досвідчений лікар з експертизи морських медичних сертифікатів. Спеціалізується на медичних оглядах моряків згідно з міжнародними стандартами.',
@@ -73,20 +73,20 @@ export default function Team() {
             {specialists.map((specialist) => (
               <div
                 key={specialist.id}
-                className="bg-white rounded-[20px] shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 group cursor-pointer h-[500px] flex flex-col hover:-translate-y-3 hover:scale-105 hover:border-blue-600"
+                className="team-card bg-white rounded-[20px] shadow-lg overflow-hidden border border-gray-100 group cursor-pointer h-[550px] flex flex-col will-change-transform transition-all duration-300 ease-linear hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] hover:border-blue-600"
               >
                 {/* Image and Overlay */}
-                <div className="relative h-[200px] bg-gradient-to-br from-gray-50 to-gray-200 overflow-hidden flex-shrink-0">
+                <div className="relative h-[420px] bg-gradient-to-br from-gray-50 to-gray-200 overflow-hidden flex-shrink-0">
                   <Image
                     src={specialist.image}
                     alt={specialist.name}
                     width={400}
-                    height={200}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    height={420}
+                    className="team-card-image w-full h-full object-cover object-top will-change-transform transition-transform duration-300 ease-linear group-hover:scale-105"
                   />
                   {/* Hidden overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-500/80 flex items-center justify-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                    <div className="text-center text-white animate-fade-in-up">
+                  <div className="team-card-overlay absolute inset-0 bg-gradient-to-br from-blue-600/90 to-blue-500/80 flex items-center justify-center will-change-transform transition-all duration-300 ease-linear opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0">
+                    <div className="text-center text-white">
                       <span className="block text-xl font-bold mb-2">{specialist.experience}</span>
                       <span className="block text-base opacity-90">{specialist.specialty}</span>
                     </div>
@@ -94,21 +94,21 @@ export default function Team() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 text-center flex-1 flex flex-col justify-between relative">
+                <div className="p-3 text-center flex-1 flex flex-col justify-center relative">
                   <div>
-                    <h3 className="text-blue-600 text-lg font-bold mb-4 uppercase tracking-wide">
+                    <h3 className="text-blue-600 text-base font-bold mb-2 uppercase tracking-wide">
                       {specialist.role}
                     </h3>
-                    <p className="text-gray-800 text-xl font-bold mb-2 leading-tight">
+                    <p className="text-gray-800 text-base font-bold mb-1 leading-tight">
                       {specialist.name}
                     </p>
-                    <p className="text-gray-600 italic text-base mb-5">
+                    <p className="text-gray-600 italic text-xs">
                       ({specialist.nameEng})
                     </p>
                   </div>
                   
                   {/* Sliding details panel */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gray-50/98 backdrop-blur-sm p-5 text-left border-t border-gray-200 transform translate-y-full opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 z-10">
+                  <div className="team-card-panel absolute bottom-0 left-0 right-0 bg-gray-50/95 p-5 text-left border-t border-gray-200 will-change-transform transition-all duration-300 ease-linear transform translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 z-10">
                     <p className="text-gray-700 text-sm leading-relaxed mb-3">
                       {specialist.description}
                     </p>

@@ -326,9 +326,14 @@ export default function Hero() {
                 Ласкаво просимо в Медичний центр безпеки судноплавства
               </h2>
               
-              <p className="text-lg sm:text-xl mb-8 opacity-80 max-w-2xl lg:max-w-none">
-                Професійний медичний огляд моряків з 2008 року
-              </p>
+              <div className="mb-8 max-w-2xl lg:max-w-none">
+                <p className="text-xl sm:text-2xl mb-2 opacity-90 font-medium">
+                  Медична комісія підходить для <span className="font-black">оформлення морських документів</span>
+                </p>
+                <p className="text-sm sm:text-base opacity-70">
+                  (Державної служби морського і внутрішнього водного транспорту та судноплавства України)
+                </p>
+              </div>
               
               <a
                 href="#contacts"
