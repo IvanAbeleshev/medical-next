@@ -3,8 +3,10 @@
 import { useState, useTransition, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { sendToTelegram } from '../app/actions/telegram';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -47,19 +49,19 @@ export default function Hero() {
     const newErrors: Record<string, string> = {};
 
     if (!formData.firstName.trim()) {
-      newErrors.firstName = 'Поле обов\'язкове';
+      newErrors.firstName = t('hero.contactForm.fieldRequired') as string;
     }
 
     if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Поле обов\'язкове';
+      newErrors.lastName = t('hero.contactForm.fieldRequired') as string;
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Поле обов\'язкове';
+      newErrors.phone = t('hero.contactForm.fieldRequired') as string;
     }
 
     if (!formData.consent) {
-      newErrors.consent = 'Необхідно дати згоду на обробку даних';
+      newErrors.consent = t('hero.contactForm.consentRequired') as string;
     }
 
     setErrors(newErrors);
@@ -318,8 +320,8 @@ export default function Hero() {
               </div>
               
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 drop-shadow-lg">
-                <span className="block mb-2">Медичний Центр</span>
-                <span className="block">Безпеки Судноплавства</span>
+                <span className="block mb-2">{t('hero.title')}</span>
+                <span className="block">{t('hero.subtitle')}</span>
               </h1>
               
               {/* <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 opacity-90">
@@ -328,10 +330,10 @@ export default function Hero() {
               
               <div className="mb-8 max-w-2xl lg:max-w-none">
                 <p className="text-xl sm:text-2xl mb-2 opacity-90 font-medium">
-                  Медична комісія підходить для <span className="font-black">оформлення морських документів</span>
+                  {t('hero.description')} <span className="font-black">{t('hero.documents')}</span>
                 </p>
                 <p className="text-sm sm:text-base opacity-70">
-                  (Державної служби морського і внутрішнього водного транспорту та судноплавства України)
+                  {t('hero.authority')}
                 </p>
               </div>
               
@@ -340,7 +342,7 @@ export default function Hero() {
                 onClick={handleContactClick}
                 className="inline-block bg-white text-blue-600 font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 hover:scale-105"
               >
-                Дізнатися більше
+                {t('hero.learnMore')}
               </a>
             </div>
           </div>
@@ -357,16 +359,16 @@ export default function Hero() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                    Заявка відправлена!
+                    {t('hero.success.title')}
                   </h3>
                   <p className="text-gray-600 mb-8">
-                    Дякуємо за вашу заявку. Ми зв&apos;яжемося з вами найближчим часом для підтвердження запису.
+                    {t('hero.success.message')}
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
                     className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition-colors duration-200"
                   >
-                    Подати нову заявку
+                    {t('hero.success.newRequest')}
                   </button>
                 </div>
               </div>
@@ -383,8 +385,8 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">Напишіть Ваш запит</h3>
-                    <p className="text-gray-600 text-sm">Заповніть форму і ми зв&apos;яжемося з вами</p>
+                    <h3 className="text-xl font-bold text-gray-800">{t('hero.contactForm.title')}</h3>
+                    <p className="text-gray-600 text-sm">{t('hero.contactForm.subtitle')}</p>
                   </div>
                 </div>
 
@@ -392,7 +394,7 @@ export default function Hero() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                        Ім&apos;я *
+                        {t('hero.contactForm.firstName')} {t('hero.contactForm.required')}
                       </label>
                       <input
                         type="text"
@@ -412,7 +414,7 @@ export default function Hero() {
 
                     <div>
                       <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                        Прізвище *
+                        {t('hero.contactForm.lastName')} {t('hero.contactForm.required')}
                       </label>
                       <input
                         type="text"
@@ -433,7 +435,7 @@ export default function Hero() {
 
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Телефон *
+                      {t('hero.contactForm.phone')} {t('hero.contactForm.required')}
                     </label>
                     <input
                       type="tel"
@@ -454,7 +456,7 @@ export default function Hero() {
 
                   <div>
                     <label htmlFor="comments" className="block text-sm font-medium text-gray-700 mb-2">
-                      Коментарій
+                      {t('hero.contactForm.comments')}
                     </label>
                     <textarea
                       id="comments"
@@ -462,7 +464,7 @@ export default function Hero() {
                       value={formData.comments}
                       onChange={handleInputChange}
                       rows={3}
-                      placeholder="Додаткова інформація або особливі побажання..."
+                      placeholder={t('hero.contactForm.commentsPlaceholder') as string}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none placeholder:text-gray-500 text-black"
                     />
                   </div>
@@ -478,7 +480,7 @@ export default function Hero() {
                         required
                       />
                       <span className="text-sm text-gray-700">
-                        Я даю згоду на обробку персональних даних *
+                        {t('hero.contactForm.consent')} {t('hero.contactForm.required')}
                       </span>
                     </label>
                     {errors.consent && (
@@ -494,7 +496,7 @@ export default function Hero() {
                     {(isSubmitting || isPending) ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                        <span>Відправляємо...</span>
+                        <span>{t('hero.contactForm.submitting')}</span>
                       </>
                     ) : (
                       <>
@@ -502,7 +504,7 @@ export default function Hero() {
                           <path d="M22 2L11 13"/>
                           <polygon points="22,2 15,22 11,13 2,9"/>
                         </svg>
-                        <span>Відправити заявку</span>
+                        <span>{t('hero.contactForm.submit')}</span>
                       </>
                     )}
                   </button>

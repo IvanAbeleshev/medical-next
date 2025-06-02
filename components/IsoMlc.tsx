@@ -1,4 +1,10 @@
+"use client";
+
+import { useLanguage } from '@/contexts/LanguageContext';
+
 export default function IsoMlc() {
+  const { t } = useLanguage();
+  
   const isoCards = [
     {
       icon: (
@@ -7,9 +13,9 @@ export default function IsoMlc() {
           <path d="M9 12l2 2 4-4"/>
         </svg>
       ),
-      title: 'ISO 9001:2015',
-      description: 'Система управління якістю, що забезпечує постійне поліпшення медичних послуг та відповідність міжнародним стандартам.',
-      badges: ['Сертифіковано', 'Щорічний аудит']
+      title: t('isoMlc.cards.iso.title'),
+      description: t('isoMlc.cards.iso.description'),
+      badges: t('isoMlc.cards.iso.badges') as string[]
     },
     {
       icon: (
@@ -19,9 +25,9 @@ export default function IsoMlc() {
           <circle cx="12" cy="12" r="2"/>
         </svg>
       ),
-      title: 'MLC 2006',
-      description: 'Морська трудова конвенція 2006 року - міжнародний стандарт для захисту прав моряків та забезпечення безпечних умов праці.',
-      badges: ['IMO затверджено', 'Міжнародне визнання']
+      title: t('isoMlc.cards.mlc.title'),
+      description: t('isoMlc.cards.mlc.description'),
+      badges: t('isoMlc.cards.mlc.badges') as string[]
     },
     {
       icon: (
@@ -33,9 +39,9 @@ export default function IsoMlc() {
           <polyline points="10,9 9,9 8,9"/>
         </svg>
       ),
-      title: 'Медичні протоколи',
-      description: 'Дотримання сучасних медичних протоколів та стандартів для проведення якісних медичних оглядів моряків.',
-      badges: ['МОЗ ліцензія', '15+ років досвіду']
+      title: t('isoMlc.cards.protocols.title'),
+      description: t('isoMlc.cards.protocols.description'),
+      badges: t('isoMlc.cards.protocols.badges') as string[]
     },
     {
       icon: (
@@ -46,9 +52,9 @@ export default function IsoMlc() {
           <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
         </svg>
       ),
-      title: 'Навчання персоналу',
-      description: 'Регулярне навчання та підвищення кваліфікації медичного персоналу відповідно до найновіших вимог та стандартів.',
-      badges: ['Щорічне навчання', 'Професійний розвиток']
+      title: t('isoMlc.cards.training.title'),
+      description: t('isoMlc.cards.training.description'),
+      badges: t('isoMlc.cards.training.badges') as string[]
     }
   ];
   return (
@@ -67,11 +73,10 @@ export default function IsoMlc() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
-            ISO / MLC 2006
+            {t('isoMlc.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Центр впровадив вимоги Конвенції про працю в морському судноплавстві 2006 року в нашій системі управління якістю. 
-            Ми проводимо щорічні внутрішні аудити та навчання персоналу.
+            {t('isoMlc.description')}
           </p>
         </div>
 
@@ -123,11 +128,10 @@ export default function IsoMlc() {
           <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-indigo-200/20 to-transparent rounded-full translate-x-12 translate-y-12"></div>
           <div className="text-center relative z-0">
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">
-              Наші стандарти якості
+              {t('isoMlc.qualityStandards.title')}
             </h3>
             <p className="text-gray-600 leading-relaxed max-w-4xl mx-auto">
-              Медичний центр безпеки судноплавства дотримується найвищих міжнародних стандартів якості в наданні медичних послуг. 
-              Наша система управління якістю регулярно проходить аудити та сертифікацію, що гарантує професійність та надійність наших послуг.
+              {t('isoMlc.qualityStandards.description')}
             </p>
           </div>
         </div>

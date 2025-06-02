@@ -1,6 +1,9 @@
 'use client';
 
+import { useLanguage } from '../contexts/LanguageContext';
+
 export default function Cooperation() {
+  const { t } = useLanguage();
   return (
     <section id="cooperation" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 relative overflow-hidden">
       {/* Large decorative square figures */}
@@ -49,7 +52,7 @@ export default function Cooperation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
-            Співробітництво
+            {t('cooperation.title')}
           </h2>
         </div>
 
@@ -57,7 +60,7 @@ export default function Cooperation() {
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 transition-all duration-300">
             <div className="text-center">
               <h3 className="text-2xl font-semibold text-gray-800 mb-8">
-                Співробітництво на взаємовигідних умовах
+                {t('cooperation.subtitle')}
               </h3>
               
               <div className="grid md:grid-cols-3 gap-8">
@@ -67,8 +70,8 @@ export default function Cooperation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-2">Судновласниками</h4>
-                  <p className="text-gray-600 text-center">Надійне партнерство з власниками флоту</p>
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">{t('cooperation.partners.shipowners.title')}</h4>
+                  <p className="text-gray-600 text-center">{t('cooperation.partners.shipowners.description')}</p>
                 </div>
 
                 <div className="flex flex-col items-center group">
@@ -77,8 +80,8 @@ export default function Cooperation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-2">Крюїнгами</h4>
-                  <p className="text-gray-600 text-center">Ефективна співпраця з кадровими агентствами</p>
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">{t('cooperation.partners.manning.title')}</h4>
+                  <p className="text-gray-600 text-center">{t('cooperation.partners.manning.description')}</p>
                 </div>
 
                 <div className="flex flex-col items-center group">
@@ -87,15 +90,14 @@ export default function Cooperation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6.294a2 2 0 01-1.255 1.857l-7.99 3.2a2 2 0 01-1.51 0l-7.99-3.2A2 2 0 013 14.294V8a2 2 0 012-2V6z" />
                     </svg>
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-2">Агентами</h4>
-                  <p className="text-gray-600 text-center">Професійна взаємодія з морськими агентами</p>
+                  <h4 className="text-lg font-semibold text-gray-800 mb-2">{t('cooperation.partners.agents.title')}</h4>
+                  <p className="text-gray-600 text-center">{t('cooperation.partners.agents.description')}</p>
                 </div>
               </div>
 
               <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
                 <p className="text-lg text-gray-700 font-medium">
-                  Ми прагнемо до довгострокових партнерських відносин, які базуються на взаємній довірі, 
-                  професіоналізмі та обопільній вигоді для всіх учасників морської індустрії.
+                  {t('cooperation.description')}
                 </p>
               </div>
             </div>

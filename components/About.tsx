@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 
 export default function About() {
+  const { t } = useLanguage();
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-white relative overflow-hidden">
       {/* Decorative gradient overlay */}
@@ -52,53 +56,49 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
-            Про нас
+            {t('about.title')}
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-15 items-center max-w-5xl mx-auto">          {/* Text Content */}
           <div className="text-left">
             <h3 className="text-3xl font-bold text-blue-600 mb-8">
-              Ваш надійний партнер у морській медицині
+              {t('about.subtitle')}
             </h3>
             
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p className="text-xl text-gray-700">
-                Медичний центр почав свою роботу в 2008 роцi. Основний напрямок роботи центру — медичний огляд морякiв.
+                {t('about.description')}
               </p>
               
               <p className="text-xl text-gray-700">
-                Сертифiкати визнані морськими адміністраціями багатьох країн світу, що підтверджує високу якість наших послуг та відповідність міжнародним стандартам.
+                {t('about.certificates')}
               </p>
               
               <div className="text-lg text-gray-700">
-                <p className="font-semibold mb-3">Сертифікати підфлагу:</p>
+                <p className="font-semibold mb-3">{t('about.flagCertificates')}</p>
                 <ul className="space-y-2 text-base pl-4">
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2">•</span>
-                    <span>Сінгапур.</span>
+                    <span>{t('about.countries.singapore')}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2">•</span>
-                    <span>Маршаллові острови, Панама, Кіпр, Данія, Ліберія, Намібія, Багамські острови, Вануату (тільки з тестом на наркотики та алкоголь), Острови Кука, Антигуа та Барбуда.</span>
+                    <span>{t('about.countries.marshall')}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2">•</span>
-                    <span>Беліз, Мальта, Домініканська Республіка, Фарерські острови.</span>
+                    <span>{t('about.countries.belize')}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-2">•</span>
-                    <span>Палау.</span>
+                    <span>{t('about.countries.palau')}</span>
                   </li>
                 </ul>
               </div>
               
-              {/* <p className="text-xl text-gray-700">
-                Наш центр ліцензований Міністерством Охорони Здоров&apos;я України та працює відповідно до найсучасніших медичних протоколів.
-              </p> */}
-              
               <p className="text-lg italic text-gray-600">
-                Centre licensed by Ministry of public health of Ukraine.
+                {t('about.licenseText')}
               </p>
             </div>
 
@@ -106,15 +106,15 @@ export default function About() {
             <div className="flex gap-8 mt-10 flex-wrap">
               <div className="text-center flex-1 min-w-24">
                 <div className="text-4xl font-bold text-blue-600 leading-none">15+</div>
-                <div className="text-sm text-gray-600 mt-1">років досвіду</div>
+                <div className="text-sm text-gray-600 mt-1">{t('about.stats.experience')}</div>
               </div>
               <div className="text-center flex-1 min-w-24">
                 <div className="text-4xl font-bold text-blue-600 leading-none">10000+</div>
-                <div className="text-sm text-gray-600 mt-1">моряків обслужено</div>
+                <div className="text-sm text-gray-600 mt-1">{t('about.stats.served')}</div>
               </div>
               <div className="text-center flex-1 min-w-24">
                 <div className="text-4xl font-bold text-blue-600 leading-none">100%</div>
-                <div className="text-sm text-gray-600 mt-1">ліцензований</div>
+                <div className="text-sm text-gray-600 mt-1">{t('about.stats.licensed')}</div>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function About() {
                   <div className="relative w-full h-80 rounded-lg overflow-hidden">
                     <Image
                       src="/images/about.jpeg"
-                      alt="Професійна медична допомога"
+                      alt={t('about.imageAlt') as string}
                       fill
                       className="object-cover object-center"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -135,9 +135,10 @@ export default function About() {
                     {/* Text overlay */}
                     <div className="absolute inset-0 flex items-end justify-start rounded-lg">
                       <div className="bg-white/70 backdrop-blur-sm rounded-tr-xl rounded-bl-lg px-6 py-4 m-4">
-                        <h4 className="text-blue-700 text-xl font-bold leading-tight">
-                          Професійна<br />медична допомога
-                        </h4>
+                        <h4 
+                          className="text-blue-700 text-xl font-bold leading-tight"
+                          dangerouslySetInnerHTML={{ __html: t('about.imageText') }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -151,7 +152,7 @@ export default function About() {
                 <div className="flex-shrink-0">
                   <Image
                     src="/images/belgium-coat-of-arms.png"
-                    alt="Герб Бельгії"
+                    alt={t('about.belgianCertification.altText') as string}
                     width={60}
                     height={60}
                     className="rounded-sm shadow-sm"
@@ -159,10 +160,10 @@ export default function About() {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-lg font-bold text-gray-800 mb-3">
-                    Бельгійська сертифікація
+                    {t('about.belgianCertification.title')}
                   </h4>
                   <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                    {`Медичний центр надає довідки на підфлажному бельгійському бланку, оскільки наш лікар офіційно затверджений Бельгійською морською адміністрацією. Це дозволяє оформлювати документи, які відповідають усім вимогам системи охорони здоров'я Бельгії та визнаються офіційними інстанціями цієї країни.`}
+                    {t('about.belgianCertification.description')}
                   </p>
                   
                   {/* PDF Document Link */}
@@ -188,7 +189,7 @@ export default function About() {
                         <line x1="16" y1="17" x2="8" y2="17"/>
                         <polyline points="10,9 9,9 8,9"/>
                       </svg>
-                      Список визнаних лікарів
+                      {t('about.belgianCertification.pdfLink')}
                     </a>
                   </div>
                 </div>

@@ -1,0 +1,289 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "team": "Specialists",
+    "certificates": "Certificates",
+    "cooperation": "Cooperation",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "title": "Medical Center",
+    "subtitle": "of Maritime Safety",
+    "description": "Medical examination suitable for",
+    "documents": "maritime documents processing",
+    "authority": "(State Service of Marine and Inland Water Transport and Shipping of Ukraine)",
+    "learnMore": "Learn More",
+    "contactForm": {
+      "title": "Submit Your Inquiry",
+      "subtitle": "Fill out the form and we will contact you",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "comments": "Comments",
+      "commentsPlaceholder": "Additional information or special requests...",
+      "consent": "I consent to the processing of personal data",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "required": "*",
+      "fieldRequired": "Field is required",
+      "consentRequired": "Consent to data processing is required"
+    },
+    "success": {
+      "title": "Application Submitted!",
+      "message": "Thank you for your application. We will contact you shortly to confirm your appointment.",
+      "newRequest": "Submit New Application"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Your reliable partner in maritime medicine",
+    "description": "The Medical Center of Maritime Safety has been operating since 2008 and is a medical institution licensed by the Ministry of Health of Ukraine.",
+    "certificates": "Certificates are recognized by maritime administrations of many countries worldwide, confirming the high quality of our services and compliance with international standards.",
+    "flagCertificates": "Flag state certificates:",
+    "countries": {
+      "singapore": "Singapore.",
+      "marshall": "Marshall Islands, Panama, Cyprus, Denmark, Liberia, Namibia, Bahamas, Vanuatu (only with drug and alcohol testing), Cook Islands, Antigua and Barbuda.",
+      "belize": "Belize, Malta, Dominican Republic, Faroe Islands.",
+      "palau": "Palau."
+    },
+    "stats": {
+      "experience": "years of experience",
+      "served": "seafarers served",
+      "licensed": "licensed"
+    },
+    "imageAlt": "Professional medical care",
+    "imageText": "Professional<br />medical care",
+    "licenseText": "Centre licensed by Ministry of Health of Ukraine.",
+    "belgianCertification": {
+      "title": "Belgian Certification",
+      "description": "The Medical Center provides certificates on the Belgian flag state form, as our doctor is officially approved by the Belgian Maritime Administration. This allows us to issue documents that meet all requirements of Belgium's healthcare system and are recognized by official authorities of this country.",
+      "altText": "Coat of Arms of Belgium",
+      "pdfLink": "List of recognized doctors"
+    }
+  },
+  "team": {
+    "title": "Our Specialists",
+    "members": {
+      "zavyalov": {
+        "name": "Zavyalov Viktor Apollonovich",
+        "nameEng": "Zavyalov Viktor",
+        "position": "Commission Chairman",
+        "experience": "15+ years of experience",
+        "specialty": "Maritime Medicine",
+        "description": "Experienced doctor in maritime medical certificate expertise. Specializes in seafarer medical examinations according to international standards.",
+        "credentials": [
+          "Licensed Doctor",
+          "MLC 2006 Expert",
+          "ISO 9001 Certified"
+        ]
+      },
+      "lukhshyn": {
+        "name": "Viktor Lukhshyn",
+        "position": "General Practitioner",
+        "experience": "12+ years of experience",
+        "specialties": [
+          "General Medicine",
+          "Seafarer Medical Examinations",
+          "MLC 2006 Expert",
+          "ISO 9001 Certified"
+        ]
+      }
+    },
+    "professionalTeam": {
+      "title": "Professional Team",
+      "description": "Our doctors have many years of experience in maritime medicine and regularly improve their qualifications in accordance with international standards and requirements of maritime administrations."
+    }
+  },
+  "certificates": {
+    "title": "Certificates and Accreditations",
+    "description": "Our medical center has all necessary licenses and certificates to provide quality medical services to seafarers. All documents are recognized by maritime administrations worldwide and comply with international standards.",
+    "items": {
+      "iso": {
+        "title": "Quality Management System ISO 9001:2015",
+        "badge": "ISO 9001:2015",
+        "description": "International quality management system standard confirming our commitment to continuous improvement of medical services and client satisfaction.",
+        "details": {
+          "scope": "Scope",
+          "scopeValue": "Seafarer Medical Examinations",
+          "status": "Status",
+          "statusValue": "Active",
+          "audit": "Audit Frequency",
+          "auditValue": "Annual"
+        }
+      },
+      "mlc": {
+        "title": "MLC 2006 Compliance Certificate",
+        "badge": "MLC 2006",
+        "description": "Document confirming our center's compliance with the Maritime Labour Convention 2006 requirements.",
+        "details": {
+          "issuedBy": "Issued by",
+          "issuedByValue": "Maritime Administration of Ukraine",
+          "recognition": "Recognition",
+          "recognitionValue": "International",
+          "compliance": "Compliance",
+          "complianceValue": "IMO Standards"
+        }
+      },
+      "license": {
+        "title": "Medical Practice License",
+        "badge": "MOH License",
+        "description": "License from the Ministry of Health of Ukraine for medical practice, including conducting medical examinations for seafarers.",
+        "details": {
+          "authority": "Licensing Authority",
+          "authorityValue": "MOH Ukraine",
+          "type": "Activity Type",
+          "typeValue": "Medical Practice",
+          "term": "Validity",
+          "termValue": "Indefinite"
+        }
+      },
+      "professional": {
+        "title": "Professional Certification",
+        "badge": "Professional",
+        "description": "Certificate of professional competency of medical personnel in conducting medical examinations for persons wishing to work on ships.",
+        "details": {
+          "sphere": "Sphere",
+          "sphereValue": "Maritime Medicine",
+          "qualification": "Qualification",
+          "qualificationValue": "Confirmed",
+          "updates": "Updates",
+          "updatesValue": "Regular"
+        }
+      }
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "description": "Over many years of operation, we have accumulated significant experience and earned the trust of thousands of seafarers. Our certificates are recognized worldwide, allowing seafarers to work on vessels of various flags.",
+      "items": {
+        "years": "Years of certified operation",
+        "countries": "Countries recognizing our certificates",
+        "certificates": "Medical certificates issued",
+        "compliance": "International standards compliance"
+      }
+    },
+    "modal": {
+      "close": "Close",
+      "view": "View",
+      "clickToView": "Click to view certificate",
+      "escHint": "Press ESC or"
+    }
+  },
+  "isoMlc": {
+    "title": "ISO / MLC 2006",
+    "description": "The Center has implemented the requirements of the Maritime Labour Convention 2006 in our quality management system. We conduct annual internal audits and staff training.",
+    "cards": {
+      "iso": {
+        "title": "ISO 9001:2015",
+        "description": "Quality management system ensuring continuous improvement of medical services and compliance with international standards.",
+        "badges": ["Certified", "Annual Audit"]
+      },
+      "mlc": {
+        "title": "MLC 2006",
+        "description": "Maritime Labour Convention 2006 - international standard for protecting seafarers' rights and ensuring safe working conditions.",
+        "badges": ["IMO Approved", "International Recognition"]
+      },
+      "protocols": {
+        "title": "Medical Protocols",
+        "description": "Adherence to modern medical protocols and standards for conducting quality medical examinations of seafarers.",
+        "badges": ["MOH License", "15+ Years Experience"]
+      },
+      "training": {
+        "title": "Staff Training",
+        "description": "Regular training and professional development of medical staff according to the latest requirements and standards.",
+        "badges": ["Annual Training", "Professional Development"]
+      }
+    },
+    "qualityStandards": {
+      "title": "Our Quality Standards",
+      "description": "The Medical Center of Maritime Safety adheres to the highest international quality standards in providing medical services. Our quality management system regularly undergoes audits and certification, guaranteeing professionalism and reliability of our services."
+    }
+  },
+  "cooperation": {
+    "title": "Cooperation",
+    "subtitle": "Cooperation on mutually beneficial terms",
+    "description": "We strive for long-term partnerships based on mutual trust, professionalism, and mutual benefit for all participants in the maritime industry.",
+    "partners": {
+      "shipowners": {
+        "title": "Shipowners",
+        "description": "Reliable partnership with fleet owners"
+      },
+      "manning": {
+        "title": "Manning Agencies",
+        "description": "Effective cooperation with crew agencies"
+      },
+      "agents": {
+        "title": "Agents",
+        "description": "Professional interaction with maritime agents"
+      }
+    }
+  },
+  "contacts": {
+    "title": "Contacts",
+    "centerName": "Medical Center of Maritime Safety",
+    "info": {
+      "address": {
+        "label": "Address:",
+        "value": "Odesa, 33 Zhukovskogo St., office 701"
+      },
+      "phones": {
+        "label": "Phones:",
+        "value": "+380487223309 / +380674837251"
+      },
+      "email": {
+        "label": "Email:",
+        "value": "mmsafety@ukr.net"
+      },
+      "hours": {
+        "label": "Reception hours:",
+        "value": "10:00 - 15:00",
+        "break": "(lunch break 13:00-13:30)"
+      },
+      "license": "Centre licensed by Ministry of public health of Ukraine"
+    },
+    "map": {
+      "title": "Our Location",
+      "address": "Odesa, 33 Zhukovskogo St., office 701",
+      "conveniences": {
+        "location": "🚗 Convenient location in the center of Odesa",
+        "transport": "🚇 Close to public transport"
+      }
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "Medical Center of Maritime Safety",
+      "description": "Professional medical services for seafarers since 2008. High quality standards, international recognition and experienced team of specialists."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "address": "82a Preobrazhenska St., Odesa, Ukraine",
+      "phone": "+380487223309 / +380674837251",
+      "email": "mmsafety@ukr.net"
+    },
+    "schedule": {
+      "title": "Working Hours",
+      "weekdays": "Monday - Friday:",
+      "weekdaysTime": "10:00 - 15:00",
+      "break": "Lunch break:",
+      "breakTime": "13:00 - 13:30",
+      "weekend": "Saturday, Sunday:",
+      "weekendTime": "Closed"
+    },
+    "certificates": {
+      "title": "Certificates"
+    },
+    "navigation": {
+      "title": "Navigation"
+    },
+    "copyright": "© 2025 Medical Center of Maritime Safety. All rights reserved."
+  },
+  "common": {
+    "years": "years",
+    "experience": "experience",
+    "active": "Active",
+    "certified": "Certified",
+    "international": "International",
+    "recognition": "recognition"
+  }
+}

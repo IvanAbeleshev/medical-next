@@ -3,8 +3,11 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { lockScroll, isIOS, createScrollDebouncer } from '@/utils/ios-utils';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSelector from './LanguageSelector';
 
 export default function Navigation() {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -68,12 +71,12 @@ export default function Navigation() {
     };
   }, [isMenuOpen]);
   const menuItems = [
-    { href: '#home', label: 'Головна' },
-    { href: '#about', label: 'Про нас' },
-    { href: '#team', label: 'Спеціалісти' },
-    { href: '#certificates', label: 'Сертифікати' },
-    { href: '#cooperation', label: 'Співробітництво' },
-    { href: '#contacts', label: "Контакти", special: false },
+    { href: '#home', label: t('nav.home') },
+    { href: '#about', label: t('nav.about') },
+    { href: '#team', label: t('nav.team') },
+    { href: '#certificates', label: t('nav.certificates') },
+    { href: '#cooperation', label: t('nav.cooperation') },
+    { href: '#contacts', label: t('nav.contacts'), special: false },
   ];
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -135,34 +138,37 @@ export default function Navigation() {
             <Image
               src="/images/logo.jpeg"
               alt="Логотип Медичного центру"
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               className="rounded-full object-cover"
             />
-            <div className="ml-3 text-left">
-              <div className="text-lg font-bold text-gray-800 leading-tight">
-                Медичний Центр
+            <div className="ml-2 text-left">
+              <div className="text-base font-bold text-gray-800 leading-tight">
+                {t('hero.title')}
               </div>
-              <div className="text-lg font-bold text-gray-800">
-                Безпеки Судноплавства
+              <div className="text-base font-bold text-gray-800">
+                {t('hero.subtitle')}
               </div>
             </div>
           </button>          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
-            {menuItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleSmoothScroll(e, item.href)}
-                className={`font-medium px-3 py-2 rounded-full transition-all duration-200 hover:transform hover:-translate-y-0.5 whitespace-nowrap ${
-                  item.special 
-                    ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
+          <div className="hidden md:flex items-center space-x-6">
+            <div className="flex space-x-6">
+              {menuItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                  className={`font-medium px-3 py-2 rounded-full transition-all duration-200 hover:transform hover:-translate-y-0.5 whitespace-nowrap ${
+                    item.special 
+                      ? 'text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md hover:shadow-lg'
+                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+            <LanguageSelector compact={true} />
           </div>
 
           {/* Mobile menu button - оптимизировано для iOS */}
@@ -228,6 +234,18 @@ export default function Navigation() {
                     {item.label}
                   </a>
                 ))}
+                {/* Language Selector for Mobile */}
+                <div className={`px-4 py-3 transform transition-all duration-200 ${
+                  isMenuOpen 
+                    ? `translate-x-0 opacity-100` 
+                    : 'translate-x-4 opacity-0'
+                }`}
+                style={{
+                  transitionDelay: isMenuOpen ? `${menuItems.length * 50}ms` : '0ms',
+                  transform: 'translate3d(0, 0, 0)'
+                }}>
+                  <LanguageSelector />
+                </div>
               </div>
             </div>
           </div>

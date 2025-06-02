@@ -1,21 +1,21 @@
+"use client";
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Team() {
+  const { t } = useLanguage();
+  
   const specialists = [
     {
       id: 'victor',
-      name: "Зав'ялов Віктор Аполлонович",
-      nameEng: 'Zavyalov Viktor',
-      role: 'Голова комісії',
+      name: t('team.members.zavyalov.name') as string,
+      nameEng: t('team.members.zavyalov.nameEng') as string,
+      role: t('team.members.zavyalov.position') as string,
       image: '/images/team/victor-zavyalov.jpeg',
-      experience: '15+ років досвіду',
-      specialty: 'Морська медицина',
-      description: 'Досвідчений лікар з експертизи морських медичних сертифікатів. Спеціалізується на медичних оглядах моряків згідно з міжнародними стандартами.',
-      credentials: [
-        'Ліцензований лікар',
-        'Експерт МЛК 2006',
-        'ISO 9001 сертифікований'
-      ]
+      experience: t('team.members.zavyalov.experience') as string,
+      specialty: t('team.members.zavyalov.specialty') as string,
+      description: t('team.members.zavyalov.description') as string,
+      credentials: t('team.members.zavyalov.credentials') as string[]
     }
   ];  return (
     <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -63,7 +63,7 @@ export default function Team() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
-            Наші спеціалісти
+            {t('team.title')}
           </h2>
         </div>
 
@@ -131,10 +131,10 @@ export default function Team() {
             <div className="max-w-lg w-full">
               <div className="bg-blue-50 rounded-2xl p-8 text-left">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  Професійна команда
+                  {t('team.professionalTeam.title')}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Наші лікарі мають багаторічний досвід роботи в галузі морської медицини та регулярно підвищують свою кваліфікацію відповідно до міжнародних стандартів та вимог морських адміністрацій.
+                  {t('team.professionalTeam.description')}
                 </p>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import seoConfig from "@/config/seo";
 import IOSOptimizer from "@/components/IOSOptimizer";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -172,8 +173,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <IOSOptimizer />
-        {children}
+        <LanguageProvider>
+          <IOSOptimizer />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

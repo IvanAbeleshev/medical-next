@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Certificates() {
+  const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedTitle, setSelectedTitle] = useState<string>('');
 
@@ -23,59 +25,59 @@ export default function Certificates() {
   const certificates = [
     {
       id: 1,
-      title: 'Система управління якістю ISO 9001:2015',
+      title: t('certificates.items.iso.title') as string,
       image: '/images/certificates/ISO 9001_1.jpg',
-      badge: 'ISO 9001:2015',
-      description: 'Міжнародний стандарт системи управління якістю, що підтверджує наше прагнення до постійного поліпшення медичних послуг та задоволення потреб клієнтів.',
+      badge: t('certificates.items.iso.badge') as string,
+      description: t('certificates.items.iso.description') as string,
       details: [
-        { label: 'Сферу дії', value: 'Медичні огляди моряків' },
-        { label: 'Статус', value: 'Активний', isActive: true },
-        { label: 'Періодичність аудиту', value: 'Щорічно' }
+        { label: t('certificates.items.iso.details.scope') as string, value: t('certificates.items.iso.details.scopeValue') as string },
+        { label: t('certificates.items.iso.details.status') as string, value: t('certificates.items.iso.details.statusValue') as string, isActive: true },
+        { label: t('certificates.items.iso.details.audit') as string, value: t('certificates.items.iso.details.auditValue') as string }
       ]
     },
     {
       id: 2,
-      title: 'Атестат відповідності MLC 2006',
+      title: t('certificates.items.mlc.title') as string,
       image: '/images/certificates/ATTESTATION OF COMPIANCE.jpg',
-      badge: 'MLC 2006',
-      description: 'Документ, що підтверджує відповідність нашого центру вимогам Морської трудової конвенції 2006 року (Maritime Labour Convention).',
+      badge: t('certificates.items.mlc.badge') as string,
+      description: t('certificates.items.mlc.description') as string,
       details: [
-        { label: 'Видано', value: 'Морська адміністрація України' },
-        { label: 'Визнання', value: 'Міжнародне', isActive: true },
-        { label: 'Відповідність', value: 'IMO стандарти' }
+        { label: t('certificates.items.mlc.details.issuedBy') as string, value: t('certificates.items.mlc.details.issuedByValue') as string },
+        { label: t('certificates.items.mlc.details.recognition') as string, value: t('certificates.items.mlc.details.recognitionValue') as string, isActive: true },
+        { label: t('certificates.items.mlc.details.compliance') as string, value: t('certificates.items.mlc.details.complianceValue') as string }
       ]
     },
     {
       id: 3,
-      title: 'Ліцензія на медичну практику',
+      title: t('certificates.items.license.title') as string,
       image: '/images/certificates/a664f8b4-fa1e-4251-b173-5edfad71309b.JPG',
-      badge: 'Ліцензія МОЗ',
-      description: 'Ліцензія Міністерства охорони здоров\'я України на провадження медичної практики, включаючи проведення медичних оглядів моряків.',
+      badge: t('certificates.items.license.badge') as string,
+      description: t('certificates.items.license.description') as string,
       details: [
-        { label: 'Орган ліцензування', value: 'МОЗ України' },
-        { label: 'Тип діяльності', value: 'Медична практика' },
-        { label: 'Термін дії', value: 'Безстроково', isActive: true }
+        { label: t('certificates.items.license.details.authority') as string, value: t('certificates.items.license.details.authorityValue') as string },
+        { label: t('certificates.items.license.details.type') as string, value: t('certificates.items.license.details.typeValue') as string },
+        { label: t('certificates.items.license.details.term') as string, value: t('certificates.items.license.details.termValue') as string, isActive: true }
       ]
     },
     {
       id: 4,
-      title: 'Професійна сертифікація',
+      title: t('certificates.items.professional.title') as string,
       image: '/images/certificates/e6059881-3aba-47cd-974b-2aa7bf08a8e7.jpg',
-      badge: 'Професійна',
-      description: 'Сертифікат професійної компетентності медичного персоналу у сфері проведення медичних оглядів осіб, які бажають працювати на суднах.',
+      badge: t('certificates.items.professional.badge') as string,
+      description: t('certificates.items.professional.description') as string,
       details: [
-        { label: 'Сфера', value: 'Морська медицина' },
-        { label: 'Кваліфікація', value: 'Підтверджена', isActive: true },
-        { label: 'Оновлення', value: 'Регулярно' }
+        { label: t('certificates.items.professional.details.sphere') as string, value: t('certificates.items.professional.details.sphereValue') as string },
+        { label: t('certificates.items.professional.details.qualification') as string, value: t('certificates.items.professional.details.qualificationValue') as string, isActive: true },
+        { label: t('certificates.items.professional.details.updates') as string, value: t('certificates.items.professional.details.updatesValue') as string }
       ]
     }
   ];
 
   const achievements = [
-    { number: '15+', text: 'Років сертифікованої роботи' },
-    { number: '50+', text: 'Країн, що визнають наші сертифікати' },
-    { number: '10K+', text: 'Виданих медичних сертифікатів' },
-    { number: '100%', text: 'Відповідність міжнародним стандартам' }
+    { number: '15+', text: t('certificates.achievements.items.years') as string },
+    { number: '50+', text: t('certificates.achievements.items.countries') as string },
+    { number: '10K+', text: t('certificates.achievements.items.certificates') as string },
+    { number: '100%', text: t('certificates.achievements.items.compliance') as string }
   ];
 
   const openModal = (imageSrc: string, title: string) => {
@@ -144,11 +146,10 @@ export default function Certificates() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
-            Сертифікати та акредитації
+            {t('certificates.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Наш медичний центр має всі необхідні ліцензії та сертифікати для надання якісних медичних послуг морякам. 
-            Всі документи визнані морськими адміністраціями країн світу та відповідають міжнародним стандартам.
+            {t('certificates.description')}
           </p>
         </div>        {/* Certificates Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
@@ -157,7 +158,7 @@ export default function Certificates() {
               key={cert.id}
               className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 hover:border-blue-600 group cursor-pointer"
               onClick={() => openModal(cert.image, cert.title)}
-              title="Натисніть для перегляду сертифіката"
+              title={t('certificates.modal.clickToView') as string}
             >
               <div className="relative h-48 overflow-hidden group-hover:scale-105 transition-transform duration-500">
                 <Image
@@ -216,7 +217,7 @@ export default function Certificates() {
         {/* Achievements Section */}
         <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg">
           <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 text-center mb-12">
-            Наші досягнення
+            {t('certificates.achievements.title')}
           </h3>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -234,8 +235,7 @@ export default function Certificates() {
 
           <div className="mt-12 text-center">
             <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Протягом багатьох років роботи ми накопичили значний досвід та заслужили довіру тисяч моряків. 
-              Наші сертифікати визнаються у всьому світі, що дозволяє морякам працювати на суднах різних прапорів.
+              {t('certificates.achievements.description')}
             </p>
           </div>
         </div>
@@ -252,9 +252,9 @@ export default function Certificates() {
             <button
               onClick={closeModal}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10 flex items-center space-x-2"
-              aria-label="Закрыть"
+              aria-label={t('certificates.modal.close') as string}
             >
-              <span className="text-sm hidden sm:block">Натисніть ESC або</span>
+              <span className="text-sm hidden sm:block">{t('certificates.modal.escHint')}</span>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"/>
                 <line x1="6" y1="6" x2="18" y2="18"/>

@@ -1,6 +1,9 @@
 'use client';
 
+import { useLanguage } from '@/contexts/LanguageContext';
+
 export default function Contacts() {
+  const { t } = useLanguage();
   return (
     <section id="contacts" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
       {/* Large decorative square figures */}
@@ -55,7 +58,7 @@ export default function Contacts() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">
-            Контакти
+            {t('contacts.title')}
           </h2>
         </div>
 
@@ -72,7 +75,7 @@ export default function Contacts() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-800">
-                  Медичний центр безпеки судноплавства
+                  {t('contacts.centerName')}
                 </h3>
               </div>
             </div>
@@ -84,8 +87,8 @@ export default function Contacts() {
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
                 <div>
-                  <span className="font-medium text-gray-800">Адреса:</span>
-                  <p className="text-gray-600">Одеса, вул. Жуковського 33, офіс 701</p>
+                  <span className="font-medium text-gray-800">{t('contacts.info.address.label')}</span>
+                  <p className="text-gray-600">{t('contacts.info.address.value')}</p>
                 </div>
               </div>
 
@@ -94,8 +97,8 @@ export default function Contacts() {
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
                 <div>
-                  <span className="font-medium text-gray-800">Телефони:</span>
-                  <p className="text-gray-600">+380487223309 / +380674837251</p>
+                  <span className="font-medium text-gray-800">{t('contacts.info.phones.label')}</span>
+                  <p className="text-gray-600">{t('contacts.info.phones.value')}</p>
                 </div>
               </div>
 
@@ -105,10 +108,10 @@ export default function Contacts() {
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
                 <div>
-                  <span className="font-medium text-gray-800">Email:</span>
+                  <span className="font-medium text-gray-800">{t('contacts.info.email.label')}</span>
                   <p className="text-gray-600">
-                    <a href="mailto:mmsafety@ukr.net" className="text-blue-600 hover:underline">
-                      mmsafety@ukr.net
+                    <a href={`mailto:${t('contacts.info.email.value')}`} className="text-blue-600 hover:underline">
+                      {t('contacts.info.email.value')}
                     </a>
                   </p>
                 </div>
@@ -120,10 +123,10 @@ export default function Contacts() {
                   <polyline points="12,6 12,12 16,14"/>
                 </svg>
                 <div>
-                  <span className="font-medium text-gray-800">Часи прийому:</span>
+                  <span className="font-medium text-gray-800">{t('contacts.info.hours.label')}</span>
                   <p className="text-gray-600">
-                    10:00 - 15:00<br/>
-                    <small className="text-gray-500">(перерва 13:00-13:30)</small>
+                    {t('contacts.info.hours.value')}<br/>
+                    <small className="text-gray-500">{t('contacts.info.hours.break')}</small>
                   </p>
                 </div>
               </div>
@@ -131,7 +134,7 @@ export default function Contacts() {
 
             <div className="mt-8 pt-6 border-t border-blue-200">
               <p className="text-sm text-blue-700 italic">
-                Centre licensed by Ministry of public health of Ukraine
+                {t('contacts.info.license')}
               </p>
             </div>
           </div>
@@ -146,8 +149,8 @@ export default function Contacts() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800">Наше розташування</h3>
-                <p className="text-gray-600 text-sm">Одеса, вул. Жуковського 33, офіс 701</p>
+                <h3 className="text-xl font-bold text-gray-800">{t('contacts.map.title')}</h3>
+                <p className="text-gray-600 text-sm">{t('contacts.map.address')}</p>
               </div>
             </div>
             
@@ -165,8 +168,8 @@ export default function Contacts() {
             </div>
             
             <div className="mt-4 text-sm text-gray-600 text-center">
-              <p>🚗 Зручне розташування в центрі Одеси</p>
-              <p>🚇 Поруч з громадським транспортом</p>
+              <p>{t('contacts.map.conveniences.location')}</p>
+              <p>{t('contacts.map.conveniences.transport')}</p>
             </div>
           </div>
         </div>

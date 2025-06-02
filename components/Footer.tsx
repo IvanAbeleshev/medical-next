@@ -1,6 +1,10 @@
 'use client';
 
+import { useLanguage } from '@/contexts/LanguageContext';
+
 export default function Footer() {
+  const { t } = useLanguage();
+  
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const target = document.querySelector(targetId);
@@ -31,17 +35,17 @@ export default function Footer() {
               Shipping Safety Medical Centre
             </h3>
             <p className="text-lg text-gray-300 mb-2">
-              Медичний центр безпеки судноплавства
+              {t('footer.company.title')}
             </p>
             <p className="text-blue-400 mb-6 italic text-sm opacity-70">
-              Centre licensed by Ministry of public health of Ukraine
+              {t('contacts.info.license')}
             </p>
             <p className="text-gray-400 leading-relaxed">
-              Професійні медичні послуги для моряків з 2008 року. Високі стандарти якості, міжнародне визнання та досвідчена команда спеціалістів.
+              {t('footer.company.description')}
             </p>
           </div>          {/* Contact Information */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-blue-400">Контактна інформація</h4>
+            <h4 className="text-lg font-semibold mb-6 text-blue-400">{t('footer.contact.title')}</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-400 mt-1 flex-shrink-0">
@@ -49,7 +53,7 @@ export default function Footer() {
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
                 <span className="text-gray-300 text-sm">
-                  Одеса, вул. Жуковського 33, офіс 701
+                  {t('contacts.info.address.value')}
                 </span>
               </div>
 
@@ -58,7 +62,7 @@ export default function Footer() {
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
                 <span className="text-gray-300 text-sm">
-                  +380487223309 / +380674837251
+                  {t('contacts.info.phones.value')}
                 </span>
               </div>
 
@@ -74,23 +78,23 @@ export default function Footer() {
             </div>
           </div>          {/* Working Hours & Certificates */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-blue-400">Робочі години</h4>
+            <h4 className="text-lg font-semibold mb-6 text-blue-400">{t('footer.schedule.title')}</h4>
             <div className="space-y-3 mb-8">
               <div className="flex justify-between py-1 border-b border-white/10">
-                <span className="text-gray-400 text-sm opacity-90">Понеділок - П&apos;ятниця:</span>
-                <span className="text-blue-400 text-sm font-semibold">10:00 - 15:00</span>
+                <span className="text-gray-400 text-sm opacity-90">{t('footer.schedule.weekdays')}</span>
+                <span className="text-blue-400 text-sm font-semibold">{t('footer.schedule.weekdaysTime')}</span>
               </div>
               <div className="flex justify-between py-1 border-b border-white/10">
-                <span className="text-gray-400 text-sm opacity-90">Обідня перерва:</span>
-                <span className="text-blue-400 text-sm font-semibold">13:00 - 13:30</span>
+                <span className="text-gray-400 text-sm opacity-90">{t('footer.schedule.break')}</span>
+                <span className="text-blue-400 text-sm font-semibold">{t('footer.schedule.breakTime')}</span>
               </div>
               <div className="flex justify-between py-1 border-b border-white/10">
-                <span className="text-gray-400 text-sm opacity-90">Субота, Неділя:</span>
-                <span className="text-blue-400 text-sm font-semibold">Вихідні</span>
+                <span className="text-gray-400 text-sm opacity-90">{t('footer.schedule.weekend')}</span>
+                <span className="text-blue-400 text-sm font-semibold">{t('footer.schedule.weekendTime')}</span>
               </div>
             </div>
 
-            <h4 className="text-lg font-semibold mb-4 text-blue-400">Сертифікати</h4>
+            <h4 className="text-lg font-semibold mb-4 text-blue-400">{t('footer.certificates.title')}</h4>
             <div className="space-y-2 mb-4">
               <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-3 py-2 rounded-3xl text-sm font-semibold text-center shadow-lg shadow-blue-600/30">
                 ISO 9001:2015
@@ -103,7 +107,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm text-center italic opacity-80">
-              15+ років професійного досвіду
+              15+ {t('common.years')} {t('common.experience')}
             </p>
           </div>
         </div>
@@ -112,7 +116,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2025 Медичний центр безпеки судноплавства. Всі права захищені.
+              {t('footer.copyright')}
             </div>
             
             <div className="flex space-x-6">
@@ -121,28 +125,28 @@ export default function Footer() {
                 onClick={(e) => handleSmoothScroll(e, '#about')}
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Про нас
+                {t('nav.about')}
               </a>
               <a
                 href="#team"
                 onClick={(e) => handleSmoothScroll(e, '#team')}
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Спеціалісти
+                {t('nav.team')}
               </a>
               <a
                 href="#certificates"
                 onClick={(e) => handleSmoothScroll(e, '#certificates')}
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Сертифікати
+                {t('nav.certificates')}
               </a>
               <a
                 href="#contacts"
                 onClick={(e) => handleSmoothScroll(e, '#contacts')}
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Контакти
+                {t('nav.contacts')}
               </a>
             </div>
           </div>
@@ -150,7 +154,7 @@ export default function Footer() {
           {/* Additional Info */}
           <div className="mt-8 pt-6 border-t border-gray-800 text-center">
             <p className="text-gray-500 text-xs">
-              Медичні огляди проводяться згідно з вимогами МЛК 2006 та стандартами ISO 9001:2015
+              {t('isoMlc.qualityStandards.description')}
             </p>
           </div>
         </div>
