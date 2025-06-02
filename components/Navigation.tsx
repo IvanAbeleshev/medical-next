@@ -171,36 +171,42 @@ export default function Navigation() {
             <LanguageSelector compact={true} />
           </div>
 
-          {/* Mobile menu button - оптимизировано для iOS */}
-          <button
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 mobile-menu-button"
-            onClick={toggleMenu}
-            disabled={isAnimating}
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-            style={{ transform: 'translate3d(0, 0, 0)' }} // Аппаратное ускорение
-          >
-            <div className="relative w-6 h-5" style={{ transform: 'translate3d(0, 0, 0)' }}>
-              <span 
-                className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
-                  isMenuOpen ? 'rotate-45 top-2' : 'top-0'
-                }`}
-                style={{ transform: 'translate3d(0, 0, 0)' }}
-              />
-              <span 
-                className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line top-2 ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100'
-                }`}
-                style={{ transform: 'translate3d(0, 0, 0)' }}
-              />
-              <span 
-                className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
-                  isMenuOpen ? '-rotate-45 top-2' : 'top-4'
-                }`}
-                style={{ transform: 'translate3d(0, 0, 0)' }}
-              />
-            </div>
-          </button>
+          {/* Mobile controls - Language selector and menu button */}
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Language Selector for Mobile */}
+            <LanguageSelector compact={true} />
+            
+            {/* Mobile menu button - оптимизировано для iOS */}
+            <button
+              className="flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 mobile-menu-button"
+              onClick={toggleMenu}
+              disabled={isAnimating}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+              style={{ transform: 'translate3d(0, 0, 0)' }} // Аппаратное ускорение
+            >
+              <div className="relative w-6 h-5" style={{ transform: 'translate3d(0, 0, 0)' }}>
+                <span 
+                  className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
+                    isMenuOpen ? 'rotate-45 top-2' : 'top-0'
+                  }`}
+                  style={{ transform: 'translate3d(0, 0, 0)' }}
+                />
+                <span 
+                  className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line top-2 ${
+                    isMenuOpen ? 'opacity-0' : 'opacity-100'
+                  }`}
+                  style={{ transform: 'translate3d(0, 0, 0)' }}
+                />
+                <span 
+                  className={`absolute block w-6 h-0.5 bg-gray-700 hamburger-line ${
+                    isMenuOpen ? '-rotate-45 top-2' : 'top-4'
+                  }`}
+                  style={{ transform: 'translate3d(0, 0, 0)' }}
+                />
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu - оптимизировано для iOS */}
@@ -234,18 +240,6 @@ export default function Navigation() {
                     {item.label}
                   </a>
                 ))}
-                {/* Language Selector for Mobile */}
-                <div className={`px-4 py-3 transform transition-all duration-200 ${
-                  isMenuOpen 
-                    ? `translate-x-0 opacity-100` 
-                    : 'translate-x-4 opacity-0'
-                }`}
-                style={{
-                  transitionDelay: isMenuOpen ? `${menuItems.length * 50}ms` : '0ms',
-                  transform: 'translate3d(0, 0, 0)'
-                }}>
-                  <LanguageSelector />
-                </div>
               </div>
             </div>
           </div>
