@@ -72,6 +72,7 @@ export default function Navigation() {
     { href: '#about', label: 'Про нас' },
     { href: '#team', label: 'Спеціалісти' },
     { href: '#certificates', label: 'Сертифікати' },
+    { href: '#cooperation', label: 'Співробітництво' },
     { href: '#contacts', label: "Контакти", special: false },
   ];
 
@@ -140,10 +141,10 @@ export default function Navigation() {
             />
             <div className="ml-3 text-left">
               <div className="text-lg font-bold text-gray-800 leading-tight">
-                Shipping Safety
+                Медичний Центр
               </div>
               <div className="text-lg font-bold text-gray-800">
-                Medical Centre
+                Безпеки Судноплавства
               </div>
             </div>
           </button>          {/* Desktop Menu */}

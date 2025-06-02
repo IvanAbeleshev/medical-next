@@ -318,13 +318,13 @@ export default function Hero() {
               </div>
               
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 drop-shadow-lg">
-                <span className="block mb-2">Shipping Safety</span>
-                <span className="block">Medical Centre</span>
+                <span className="block mb-2">Медичний Центр</span>
+                <span className="block">Безпеки Судноплавства</span>
               </h1>
               
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 opacity-90">
+              {/* <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 opacity-90">
                 Ласкаво просимо в Медичний центр безпеки судноплавства
-              </h2>
+              </h2> */}
               
               <div className="mb-8 max-w-2xl lg:max-w-none">
                 <p className="text-xl sm:text-2xl mb-2 opacity-90 font-medium">
@@ -383,7 +383,7 @@ export default function Hero() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800">Запис на прийом</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Напишіть Ваш запит</h3>
                     <p className="text-gray-600 text-sm">Заповніть форму і ми зв&apos;яжемося з вами</p>
                   </div>
                 </div>

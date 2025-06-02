@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import Certificates from "@/components/Certificates";
 import Contacts from "@/components/Contacts";
+import Cooperation from "@/components/Cooperation";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import IsoMlc from "@/components/IsoMlc";
@@ -17,6 +18,7 @@ export default function Home() {
       <Team />
       <IsoMlc />
       <Certificates />
+      <Cooperation />
       <Contacts />
       <Footer />
     </main>
